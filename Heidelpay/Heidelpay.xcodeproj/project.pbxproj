@@ -1,0 +1,973 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B0B46CA215A3C8200F662EA /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B46C9215A3C8200F662EA /* PaymentType.swift */; };
+		5B0B46CC215A405C00F662EA /* Heidelpay+CreatePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B46CB215A405C00F662EA /* Heidelpay+CreatePayment.swift */; };
+		5B0B46CE215A492C00F662EA /* PaymentTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0B46CD215A492C00F662EA /* PaymentTypeTest.swift */; };
+		5B0EE52F2159283000A7E46A /* HeidelpayPaymentInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0EE52E2159283000A7E46A /* HeidelpayPaymentInfoTextField.swift */; };
+		5B3CD27221624286000C93A4 /* payment_method-genericcard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B3CD2702162426D000C93A4 /* payment_method-genericcard.png */; };
+		5B3CD274216245B9000C93A4 /* payment_method-sepa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B3CD273216245B9000C93A4 /* payment_method-sepa.png */; };
+		5B5C6911215233B500675523 /* TestBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C6910215233B500675523 /* TestBackendService.swift */; };
+		5B5C6913215234A100675523 /* HTTPBackendServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C6912215234A100675523 /* HTTPBackendServiceTest.swift */; };
+		5B5C69162152383C00675523 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C69152152383C00675523 /* PublicKey.swift */; };
+		5B5C6918215239C200675523 /* PublicKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C6917215239C200675523 /* PublicKeyTest.swift */; };
+		5B5C691B2152592A00675523 /* SetupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C691A2152592A00675523 /* SetupRequest.swift */; };
+		5B5C691E21526BA500675523 /* CardPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C691D21526BA500675523 /* CardPayment.swift */; };
+		5B5C692021526BB500675523 /* CreatePaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C691F21526BB500675523 /* CreatePaymentType.swift */; };
+		5B5C69232152915C00675523 /* CardPaymentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C69222152915C00675523 /* CardPaymentTest.swift */; };
+		5B5C6927215294B700675523 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C6926215294B700675523 /* PaymentMethod.swift */; };
+		5B5C69292152998B00675523 /* CreatePaymentTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C69282152998B00675523 /* CreatePaymentTypeRequest.swift */; };
+		5B5C692B21529FB600675523 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C692A21529FB600675523 /* Request.swift */; };
+		5B5C692D21529FE000675523 /* Encodable+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C692C21529FE000675523 /* Encodable+Shortcut.swift */; };
+		5B7CCB53215A514E0038FC5D /* CreatePaymentType+Temporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CCB52215A514E0038FC5D /* CreatePaymentType+Temporary.swift */; };
+		5BA8E16D21511AC000A26232 /* HeidelpaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */; };
+		5BA8E17221511AC000A26232 /* HeidelpayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8E17121511AC000A26232 /* HeidelpayTests.swift */; };
+		5BA8E17421511AC000A26232 /* HeidelpaySDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BA8E16621511AC000A26232 /* HeidelpaySDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BDD340B215121BF00518AA4 /* Heidelpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD340A215121BF00518AA4 /* Heidelpay.swift */; };
+		5BDD340E2151237900518AA4 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD340D2151237900518AA4 /* BackendService.swift */; };
+		5BDD3410215123DD00518AA4 /* HTTPBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD340F215123DD00518AA4 /* HTTPBackendService.swift */; };
+		5BDD34122151241A00518AA4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD34112151241900518AA4 /* Environment.swift */; };
+		5BE28BA82154E72A00E5FE00 /* SepaDirectDebitPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE28BA72154E72A00E5FE00 /* SepaDirectDebitPayment.swift */; };
+		5BE28BAC2154EA6100E5FE00 /* InvoicePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE28BAB2154EA6100E5FE00 /* InvoicePayment.swift */; };
+		5BE28BB02154EE5100E5FE00 /* NoParameterPaymentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE28BAF2154EE5100E5FE00 /* NoParameterPaymentTypes.swift */; };
+		5BE28BB22154F19100E5FE00 /* IdealPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE28BB12154F19100E5FE00 /* IdealPayment.swift */; };
+		5BE33B20215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE33B1F215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift */; };
+		5BE33B22215FDE84005B8A7F /* CardPaymentMaskTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE33B21215FDE84005B8A7F /* CardPaymentMaskTest.swift */; };
+		5BEDD0852155025B00B84975 /* HeidelpaySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD07D2155023D00B84975 /* HeidelpaySDKResources.bundle */; };
+		5BEDD0A321550B1400B84975 /* payment_method-mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD09D21550B1400B84975 /* payment_method-mastercard.png */; };
+		5BEDD0A421550B1400B84975 /* payment_method-american-express.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD09E21550B1400B84975 /* payment_method-american-express.png */; };
+		5BEDD0A521550B1400B84975 /* payment_method-maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD09F21550B1400B84975 /* payment_method-maestro.png */; };
+		5BEDD0A621550B1400B84975 /* payment_method-paypal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD0A021550B1400B84975 /* payment_method-paypal.png */; };
+		5BEDD0A721550B1400B84975 /* payment_method-sofort.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD0A121550B1400B84975 /* payment_method-sofort.png */; };
+		5BEDD0A821550B1400B84975 /* payment_method-visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEDD0A221550B1400B84975 /* payment_method-visa.png */; };
+		5BEDD0AA21550BB000B84975 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0A921550BAF00B84975 /* UIImageExtensions.swift */; };
+		5BEDD0B321550C4600B84975 /* PaymentMethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0AB21550C4500B84975 /* PaymentMethodExtension.swift */; };
+		5BEDD0B521550C4600B84975 /* PaymentTypeInformationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0AE21550C4500B84975 /* PaymentTypeInformationValidator.swift */; };
+		5BEDD0B621550C4600B84975 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0AF21550C4500B84975 /* CardType.swift */; };
+		5BEDD0B921550C4600B84975 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0B221550C4500B84975 /* StringExtensions.swift */; };
+		5BEDD0BB21550DCA00B84975 /* GroupingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0BA21550DCA00B84975 /* GroupingStyle.swift */; };
+		5BEDD0D02155409700B84975 /* CardExpiryTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0CA2155409700B84975 /* CardExpiryTextFieldDelegate.swift */; };
+		5BEDD0D12155409700B84975 /* ChainingTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0CB2155409700B84975 /* ChainingTextFieldDelegate.swift */; };
+		5BEDD0D22155409700B84975 /* CardCvvTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0CC2155409700B84975 /* CardCvvTextFieldDelegate.swift */; };
+		5BEDD0D32155409700B84975 /* CardNumberTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0CD2155409700B84975 /* CardNumberTextFieldDelegate.swift */; };
+		5BEDD0D42155409700B84975 /* GroupingTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0CE2155409700B84975 /* GroupingTextFieldDelegate.swift */; };
+		5BEDD0D52155409700B84975 /* IBANTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0CF2155409700B84975 /* IBANTextFieldDelegate.swift */; };
+		5BEDD0D7215540A500B84975 /* CardNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0D6215540A500B84975 /* CardNumberTextField.swift */; };
+		5BEDD0D9215540AD00B84975 /* CardExpiryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0D8215540AD00B84975 /* CardExpiryTextField.swift */; };
+		5BEDD0DB215540B500B84975 /* CardCvvTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0DA215540B500B84975 /* CardCvvTextField.swift */; };
+		5BEDD0DD215540BC00B84975 /* IBANTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0DC215540BC00B84975 /* IBANTextField.swift */; };
+		5BEDD0DF2155438A00B84975 /* PaymentInputInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0DE2155438A00B84975 /* PaymentInputInformation.swift */; };
+		5BEDD0E12155451400B84975 /* HeidelpayTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0E02155451400B84975 /* HeidelpayTheme.swift */; };
+		5BEDD0E42156431F00B84975 /* PaymentTypeInformationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0E32156431F00B84975 /* PaymentTypeInformationValidator.swift */; };
+		5BEDD0E82156438700B84975 /* CardTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0E72156438700B84975 /* CardTypeTest.swift */; };
+		5BEDD0EA2156443200B84975 /* GroupingStyleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0E92156443200B84975 /* GroupingStyleTest.swift */; };
+		5BEDD0EC215644FF00B84975 /* CardExpiryTextFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0EB215644FF00B84975 /* CardExpiryTextFieldTest.swift */; };
+		5BEDD0EE2156481B00B84975 /* CardCvvTextFieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0ED2156481B00B84975 /* CardCvvTextFieldText.swift */; };
+		5BEDD0F02156482D00B84975 /* CardNumberTextFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0EF2156482D00B84975 /* CardNumberTextFieldTest.swift */; };
+		5BEDD0F22156490300B84975 /* PaymentInformationInputTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0F12156490300B84975 /* PaymentInformationInputTest.swift */; };
+		5BEF7D4D21539784009B4462 /* BackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEF7D4C21539784009B4462 /* BackendError.swift */; };
+		5BEF7D4F2153C369009B4462 /* ServerErrorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEF7D4E2153C369009B4462 /* ServerErrorDetails.swift */; };
+		5BEF7D522153D3D5009B4462 /* FTCreatePaymentTypesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEF7D512153D3D5009B4462 /* FTCreatePaymentTypesTest.swift */; };
+		5BEF7D562153E21C009B4462 /* ServerErrorDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEF7D552153E21C009B4462 /* ServerErrorDetailsTest.swift */; };
+		5BEF7D5A2153E4E2009B4462 /* CreatePaymentTypeRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEF7D592153E4E2009B4462 /* CreatePaymentTypeRequestTest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BA8E16E21511AC000A26232 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BA8E15A21511AC000A26232 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8E16221511AC000A26232;
+			remoteInfo = HeidelPay;
+		};
+		5BEDD0832155024700B84975 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BA8E15A21511AC000A26232 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BEDD07C2155023D00B84975;
+			remoteInfo = HeidelPaySDKResources;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B0B46C9215A3C8200F662EA /* PaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
+		5B0B46CB215A405C00F662EA /* Heidelpay+CreatePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heidelpay+CreatePayment.swift"; sourceTree = "<group>"; };
+		5B0B46CD215A492C00F662EA /* PaymentTypeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypeTest.swift; sourceTree = "<group>"; };
+		5B0EE52E2159283000A7E46A /* HeidelpayPaymentInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeidelpayPaymentInfoTextField.swift; sourceTree = "<group>"; };
+		5B3CD2702162426D000C93A4 /* payment_method-genericcard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-genericcard.png"; sourceTree = "<group>"; };
+		5B3CD273216245B9000C93A4 /* payment_method-sepa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-sepa.png"; sourceTree = "<group>"; };
+		5B5C6910215233B500675523 /* TestBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBackendService.swift; sourceTree = "<group>"; };
+		5B5C6912215234A100675523 /* HTTPBackendServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBackendServiceTest.swift; sourceTree = "<group>"; };
+		5B5C69152152383C00675523 /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
+		5B5C6917215239C200675523 /* PublicKeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyTest.swift; sourceTree = "<group>"; };
+		5B5C691A2152592A00675523 /* SetupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRequest.swift; sourceTree = "<group>"; };
+		5B5C691D21526BA500675523 /* CardPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPayment.swift; sourceTree = "<group>"; };
+		5B5C691F21526BB500675523 /* CreatePaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentType.swift; sourceTree = "<group>"; };
+		5B5C69222152915C00675523 /* CardPaymentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentTest.swift; sourceTree = "<group>"; };
+		5B5C6926215294B700675523 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		5B5C69282152998B00675523 /* CreatePaymentTypeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentTypeRequest.swift; sourceTree = "<group>"; };
+		5B5C692A21529FB600675523 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		5B5C692C21529FE000675523 /* Encodable+Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Shortcut.swift"; sourceTree = "<group>"; };
+		5B7CCB52215A514E0038FC5D /* CreatePaymentType+Temporary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreatePaymentType+Temporary.swift"; sourceTree = "<group>"; };
+		5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HeidelpaySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA8E16621511AC000A26232 /* HeidelpaySDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeidelpaySDK.h; sourceTree = "<group>"; };
+		5BA8E16721511AC000A26232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BA8E16C21511AC000A26232 /* HeidelpaySDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeidelpaySDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA8E17121511AC000A26232 /* HeidelpayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeidelpayTests.swift; sourceTree = "<group>"; };
+		5BA8E17321511AC000A26232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BDD340A215121BF00518AA4 /* Heidelpay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heidelpay.swift; sourceTree = "<group>"; };
+		5BDD340D2151237900518AA4 /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		5BDD340F215123DD00518AA4 /* HTTPBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBackendService.swift; sourceTree = "<group>"; };
+		5BDD34112151241900518AA4 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		5BE28BA72154E72A00E5FE00 /* SepaDirectDebitPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepaDirectDebitPayment.swift; sourceTree = "<group>"; };
+		5BE28BAB2154EA6100E5FE00 /* InvoicePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePayment.swift; sourceTree = "<group>"; };
+		5BE28BAF2154EE5100E5FE00 /* NoParameterPaymentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoParameterPaymentTypes.swift; sourceTree = "<group>"; };
+		5BE28BB12154F19100E5FE00 /* IdealPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealPayment.swift; sourceTree = "<group>"; };
+		5BE33B1F215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeidelpayFinishChargeViewController.swift; sourceTree = "<group>"; };
+		5BE33B21215FDE84005B8A7F /* CardPaymentMaskTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentMaskTest.swift; sourceTree = "<group>"; };
+		5BEDD07D2155023D00B84975 /* HeidelpaySDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeidelpaySDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEDD07F2155023E00B84975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BEDD09D21550B1400B84975 /* payment_method-mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-mastercard.png"; sourceTree = "<group>"; };
+		5BEDD09E21550B1400B84975 /* payment_method-american-express.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-american-express.png"; sourceTree = "<group>"; };
+		5BEDD09F21550B1400B84975 /* payment_method-maestro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-maestro.png"; sourceTree = "<group>"; };
+		5BEDD0A021550B1400B84975 /* payment_method-paypal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-paypal.png"; sourceTree = "<group>"; };
+		5BEDD0A121550B1400B84975 /* payment_method-sofort.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-sofort.png"; sourceTree = "<group>"; };
+		5BEDD0A221550B1400B84975 /* payment_method-visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_method-visa.png"; sourceTree = "<group>"; };
+		5BEDD0A921550BAF00B84975 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		5BEDD0AB21550C4500B84975 /* PaymentMethodExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodExtension.swift; sourceTree = "<group>"; };
+		5BEDD0AE21550C4500B84975 /* PaymentTypeInformationValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTypeInformationValidator.swift; sourceTree = "<group>"; };
+		5BEDD0AF21550C4500B84975 /* CardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		5BEDD0B221550C4500B84975 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		5BEDD0BA21550DCA00B84975 /* GroupingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingStyle.swift; sourceTree = "<group>"; };
+		5BEDD0CA2155409700B84975 /* CardExpiryTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardExpiryTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BEDD0CB2155409700B84975 /* ChainingTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainingTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BEDD0CC2155409700B84975 /* CardCvvTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCvvTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BEDD0CD2155409700B84975 /* CardNumberTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNumberTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BEDD0CE2155409700B84975 /* GroupingTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupingTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BEDD0CF2155409700B84975 /* IBANTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBANTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BEDD0D6215540A500B84975 /* CardNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberTextField.swift; sourceTree = "<group>"; };
+		5BEDD0D8215540AD00B84975 /* CardExpiryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpiryTextField.swift; sourceTree = "<group>"; };
+		5BEDD0DA215540B500B84975 /* CardCvvTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCvvTextField.swift; sourceTree = "<group>"; };
+		5BEDD0DC215540BC00B84975 /* IBANTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBANTextField.swift; sourceTree = "<group>"; };
+		5BEDD0DE2155438A00B84975 /* PaymentInputInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInputInformation.swift; sourceTree = "<group>"; };
+		5BEDD0E02155451400B84975 /* HeidelpayTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeidelpayTheme.swift; sourceTree = "<group>"; };
+		5BEDD0E32156431F00B84975 /* PaymentTypeInformationValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypeInformationValidator.swift; sourceTree = "<group>"; };
+		5BEDD0E72156438700B84975 /* CardTypeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeTest.swift; sourceTree = "<group>"; };
+		5BEDD0E92156443200B84975 /* GroupingStyleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingStyleTest.swift; sourceTree = "<group>"; };
+		5BEDD0EB215644FF00B84975 /* CardExpiryTextFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpiryTextFieldTest.swift; sourceTree = "<group>"; };
+		5BEDD0ED2156481B00B84975 /* CardCvvTextFieldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCvvTextFieldText.swift; sourceTree = "<group>"; };
+		5BEDD0EF2156482D00B84975 /* CardNumberTextFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberTextFieldTest.swift; sourceTree = "<group>"; };
+		5BEDD0F12156490300B84975 /* PaymentInformationInputTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInformationInputTest.swift; sourceTree = "<group>"; };
+		5BEF7D4C21539784009B4462 /* BackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendError.swift; sourceTree = "<group>"; };
+		5BEF7D4E2153C369009B4462 /* ServerErrorDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorDetails.swift; sourceTree = "<group>"; };
+		5BEF7D512153D3D5009B4462 /* FTCreatePaymentTypesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTCreatePaymentTypesTest.swift; sourceTree = "<group>"; };
+		5BEF7D552153E21C009B4462 /* ServerErrorDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorDetailsTest.swift; sourceTree = "<group>"; };
+		5BEF7D592153E4E2009B4462 /* CreatePaymentTypeRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentTypeRequestTest.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BA8E16021511AC000A26232 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA8E16921511AC000A26232 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA8E16D21511AC000A26232 /* HeidelpaySDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEDD07A2155023D00B84975 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B5C6914215234AA00675523 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5B5C6910215233B500675523 /* TestBackendService.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		5B5C69192152591900675523 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				5B5C691A2152592A00675523 /* SetupRequest.swift */,
+				5B5C69282152998B00675523 /* CreatePaymentTypeRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		5B5C691C21526B8D00675523 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				5B5C6926215294B700675523 /* PaymentMethod.swift */,
+				5B0B46C9215A3C8200F662EA /* PaymentType.swift */,
+				5BE28BA42154E68400E5FE00 /* PaymentTypes */,
+				5B5C69152152383C00675523 /* PublicKey.swift */,
+				5BEF7D4E2153C369009B4462 /* ServerErrorDetails.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		5B5C69212152914700675523 /* PaymentTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5B5C69222152915C00675523 /* CardPaymentTest.swift */,
+			);
+			path = PaymentTypes;
+			sourceTree = "<group>";
+		};
+		5BA8E15921511AC000A26232 = {
+			isa = PBXGroup;
+			children = (
+				5BA8E16521511AC000A26232 /* HeidelpaySDK */,
+				5BA8E17021511AC000A26232 /* HeidelpaySDKTests */,
+				5BEDD07E2155023E00B84975 /* HeidelpaySDKResources */,
+				5BA8E16421511AC000A26232 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BA8E16421511AC000A26232 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */,
+				5BA8E16C21511AC000A26232 /* HeidelpaySDKTests.xctest */,
+				5BEDD07D2155023D00B84975 /* HeidelpaySDKResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BA8E16521511AC000A26232 /* HeidelpaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0862155027000B84975 /* Resources */,
+				5BEDD078215501A100B84975 /* UI */,
+				5B5C691C21526B8D00675523 /* Types */,
+				5B5C69192152591900675523 /* Requests */,
+				5BDD340C2151236900518AA4 /* Backend */,
+				5BDD340A215121BF00518AA4 /* Heidelpay.swift */,
+				5B0B46CB215A405C00F662EA /* Heidelpay+CreatePayment.swift */,
+				5BA8E16621511AC000A26232 /* HeidelpaySDK.h */,
+				5BA8E16721511AC000A26232 /* Info.plist */,
+			);
+			path = HeidelpaySDK;
+			sourceTree = "<group>";
+		};
+		5BA8E17021511AC000A26232 /* HeidelpaySDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0E2215642FF00B84975 /* UIComponentTests */,
+				5BEF7D502153D3A7009B4462 /* FunctionalTests */,
+				5B5C69212152914700675523 /* PaymentTypes */,
+				5B5C6914215234AA00675523 /* Mock */,
+				5B5C6917215239C200675523 /* PublicKeyTest.swift */,
+				5BA8E17121511AC000A26232 /* HeidelpayTests.swift */,
+				5B5C6912215234A100675523 /* HTTPBackendServiceTest.swift */,
+				5BEF7D552153E21C009B4462 /* ServerErrorDetailsTest.swift */,
+				5BEF7D592153E4E2009B4462 /* CreatePaymentTypeRequestTest.swift */,
+				5B0B46CD215A492C00F662EA /* PaymentTypeTest.swift */,
+				5BA8E17321511AC000A26232 /* Info.plist */,
+				5BE33B21215FDE84005B8A7F /* CardPaymentMaskTest.swift */,
+			);
+			path = HeidelpaySDKTests;
+			sourceTree = "<group>";
+		};
+		5BDD340C2151236900518AA4 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				5BDD34112151241900518AA4 /* Environment.swift */,
+				5B5C692A21529FB600675523 /* Request.swift */,
+				5BEF7D4C21539784009B4462 /* BackendError.swift */,
+				5BDD340D2151237900518AA4 /* BackendService.swift */,
+				5BDD340F215123DD00518AA4 /* HTTPBackendService.swift */,
+				5B5C692C21529FE000675523 /* Encodable+Shortcut.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		5BE28BA42154E68400E5FE00 /* PaymentTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5B5C691F21526BB500675523 /* CreatePaymentType.swift */,
+				5B7CCB52215A514E0038FC5D /* CreatePaymentType+Temporary.swift */,
+				5B5C691D21526BA500675523 /* CardPayment.swift */,
+				5BE28BA72154E72A00E5FE00 /* SepaDirectDebitPayment.swift */,
+				5BE28BAB2154EA6100E5FE00 /* InvoicePayment.swift */,
+				5BE28BAF2154EE5100E5FE00 /* NoParameterPaymentTypes.swift */,
+				5BE28BB12154F19100E5FE00 /* IdealPayment.swift */,
+			);
+			path = PaymentTypes;
+			sourceTree = "<group>";
+		};
+		5BEDD078215501A100B84975 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0BC215539B100B84975 /* TextFields */,
+				5BEDD0AC21550C4500B84975 /* Model */,
+				5BEDD0A921550BAF00B84975 /* UIImageExtensions.swift */,
+				5BEDD0AB21550C4500B84975 /* PaymentMethodExtension.swift */,
+				5BEDD0B221550C4500B84975 /* StringExtensions.swift */,
+				5BEDD0E02155451400B84975 /* HeidelpayTheme.swift */,
+				5BE33B1F215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5BEDD07E2155023E00B84975 /* HeidelpaySDKResources */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD07F2155023E00B84975 /* Info.plist */,
+			);
+			path = HeidelpaySDKResources;
+			sourceTree = "<group>";
+		};
+		5BEDD0862155027000B84975 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD09C21550B1400B84975 /* payment-method-icons */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5BEDD09C21550B1400B84975 /* payment-method-icons */ = {
+			isa = PBXGroup;
+			children = (
+				5B3CD273216245B9000C93A4 /* payment_method-sepa.png */,
+				5B3CD2702162426D000C93A4 /* payment_method-genericcard.png */,
+				5BEDD09D21550B1400B84975 /* payment_method-mastercard.png */,
+				5BEDD09E21550B1400B84975 /* payment_method-american-express.png */,
+				5BEDD09F21550B1400B84975 /* payment_method-maestro.png */,
+				5BEDD0A021550B1400B84975 /* payment_method-paypal.png */,
+				5BEDD0A121550B1400B84975 /* payment_method-sofort.png */,
+				5BEDD0A221550B1400B84975 /* payment_method-visa.png */,
+			);
+			path = "payment-method-icons";
+			sourceTree = "<group>";
+		};
+		5BEDD0AC21550C4500B84975 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0AE21550C4500B84975 /* PaymentTypeInformationValidator.swift */,
+				5BEDD0AF21550C4500B84975 /* CardType.swift */,
+				5BEDD0BA21550DCA00B84975 /* GroupingStyle.swift */,
+				5BEDD0DE2155438A00B84975 /* PaymentInputInformation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BEDD0BC215539B100B84975 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0C92155405D00B84975 /* Delegates */,
+				5B0EE52E2159283000A7E46A /* HeidelpayPaymentInfoTextField.swift */,
+				5BEDD0D6215540A500B84975 /* CardNumberTextField.swift */,
+				5BEDD0D8215540AD00B84975 /* CardExpiryTextField.swift */,
+				5BEDD0DA215540B500B84975 /* CardCvvTextField.swift */,
+				5BEDD0DC215540BC00B84975 /* IBANTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		5BEDD0C92155405D00B84975 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0CB2155409700B84975 /* ChainingTextFieldDelegate.swift */,
+				5BEDD0CE2155409700B84975 /* GroupingTextFieldDelegate.swift */,
+				5BEDD0CC2155409700B84975 /* CardCvvTextFieldDelegate.swift */,
+				5BEDD0CA2155409700B84975 /* CardExpiryTextFieldDelegate.swift */,
+				5BEDD0CD2155409700B84975 /* CardNumberTextFieldDelegate.swift */,
+				5BEDD0CF2155409700B84975 /* IBANTextFieldDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		5BEDD0E2215642FF00B84975 /* UIComponentTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BEDD0E32156431F00B84975 /* PaymentTypeInformationValidator.swift */,
+				5BEDD0E72156438700B84975 /* CardTypeTest.swift */,
+				5BEDD0E92156443200B84975 /* GroupingStyleTest.swift */,
+				5BEDD0EB215644FF00B84975 /* CardExpiryTextFieldTest.swift */,
+				5BEDD0ED2156481B00B84975 /* CardCvvTextFieldText.swift */,
+				5BEDD0EF2156482D00B84975 /* CardNumberTextFieldTest.swift */,
+				5BEDD0F12156490300B84975 /* PaymentInformationInputTest.swift */,
+			);
+			path = UIComponentTests;
+			sourceTree = "<group>";
+		};
+		5BEF7D502153D3A7009B4462 /* FunctionalTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BEF7D512153D3D5009B4462 /* FTCreatePaymentTypesTest.swift */,
+			);
+			path = FunctionalTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5BA8E15E21511AC000A26232 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BA8E17421511AC000A26232 /* HeidelpaySDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5BA8E16221511AC000A26232 /* HeidelpaySDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BA8E17721511AC000A26232 /* Build configuration list for PBXNativeTarget "HeidelpaySDK" */;
+			buildPhases = (
+				5BA8E15E21511AC000A26232 /* Headers */,
+				5BA8E15F21511AC000A26232 /* Sources */,
+				5BA8E16021511AC000A26232 /* Frameworks */,
+				5BA8E16121511AC000A26232 /* Resources */,
+				5BA8E17D21511B8C00A26232 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BEDD0842155024700B84975 /* PBXTargetDependency */,
+			);
+			name = HeidelpaySDK;
+			productName = HeidelPay;
+			productReference = 5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5BA8E16B21511AC000A26232 /* HeidelpaySDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BA8E17A21511AC000A26232 /* Build configuration list for PBXNativeTarget "HeidelpaySDKTests" */;
+			buildPhases = (
+				5BA8E16821511AC000A26232 /* Sources */,
+				5BA8E16921511AC000A26232 /* Frameworks */,
+				5BA8E16A21511AC000A26232 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BA8E16F21511AC000A26232 /* PBXTargetDependency */,
+			);
+			name = HeidelpaySDKTests;
+			productName = HeidelPayTests;
+			productReference = 5BA8E16C21511AC000A26232 /* HeidelpaySDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5BEDD07C2155023D00B84975 /* HeidelpaySDKResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BEDD0802155023E00B84975 /* Build configuration list for PBXNativeTarget "HeidelpaySDKResources" */;
+			buildPhases = (
+				5BEDD0792155023D00B84975 /* Sources */,
+				5BEDD07A2155023D00B84975 /* Frameworks */,
+				5BEDD07B2155023D00B84975 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeidelpaySDKResources;
+			productName = HeidelPaySDKResources;
+			productReference = 5BEDD07D2155023D00B84975 /* HeidelpaySDKResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BA8E15A21511AC000A26232 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "heidelpay GmbH";
+				TargetAttributes = {
+					5BA8E16221511AC000A26232 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					5BA8E16B21511AC000A26232 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					5BEDD07C2155023D00B84975 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 5BA8E15D21511AC000A26232 /* Build configuration list for PBXProject "Heidelpay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5BA8E15921511AC000A26232;
+			productRefGroup = 5BA8E16421511AC000A26232 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BA8E16221511AC000A26232 /* HeidelpaySDK */,
+				5BA8E16B21511AC000A26232 /* HeidelpaySDKTests */,
+				5BEDD07C2155023D00B84975 /* HeidelpaySDKResources */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BA8E16121511AC000A26232 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BEDD0852155025B00B84975 /* HeidelpaySDKResources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA8E16A21511AC000A26232 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEDD07B2155023D00B84975 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BEDD0A321550B1400B84975 /* payment_method-mastercard.png in Resources */,
+				5BEDD0A421550B1400B84975 /* payment_method-american-express.png in Resources */,
+				5B3CD27221624286000C93A4 /* payment_method-genericcard.png in Resources */,
+				5BEDD0A621550B1400B84975 /* payment_method-paypal.png in Resources */,
+				5BEDD0A821550B1400B84975 /* payment_method-visa.png in Resources */,
+				5BEDD0A721550B1400B84975 /* payment_method-sofort.png in Resources */,
+				5B3CD274216245B9000C93A4 /* payment_method-sepa.png in Resources */,
+				5BEDD0A521550B1400B84975 /* payment_method-maestro.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BA8E17D21511B8C00A26232 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BA8E15F21511AC000A26232 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B5C692B21529FB600675523 /* Request.swift in Sources */,
+				5B5C691E21526BA500675523 /* CardPayment.swift in Sources */,
+				5B7CCB53215A514E0038FC5D /* CreatePaymentType+Temporary.swift in Sources */,
+				5B5C69162152383C00675523 /* PublicKey.swift in Sources */,
+				5BE28BA82154E72A00E5FE00 /* SepaDirectDebitPayment.swift in Sources */,
+				5BEDD0D32155409700B84975 /* CardNumberTextFieldDelegate.swift in Sources */,
+				5B0B46CC215A405C00F662EA /* Heidelpay+CreatePayment.swift in Sources */,
+				5B5C692021526BB500675523 /* CreatePaymentType.swift in Sources */,
+				5BEDD0BB21550DCA00B84975 /* GroupingStyle.swift in Sources */,
+				5B0B46CA215A3C8200F662EA /* PaymentType.swift in Sources */,
+				5BEDD0D52155409700B84975 /* IBANTextFieldDelegate.swift in Sources */,
+				5BE28BAC2154EA6100E5FE00 /* InvoicePayment.swift in Sources */,
+				5BEDD0AA21550BB000B84975 /* UIImageExtensions.swift in Sources */,
+				5BEDD0B521550C4600B84975 /* PaymentTypeInformationValidator.swift in Sources */,
+				5BEDD0B921550C4600B84975 /* StringExtensions.swift in Sources */,
+				5BE28BB02154EE5100E5FE00 /* NoParameterPaymentTypes.swift in Sources */,
+				5BDD340E2151237900518AA4 /* BackendService.swift in Sources */,
+				5BDD34122151241A00518AA4 /* Environment.swift in Sources */,
+				5BEDD0DB215540B500B84975 /* CardCvvTextField.swift in Sources */,
+				5BEDD0D02155409700B84975 /* CardExpiryTextFieldDelegate.swift in Sources */,
+				5BE28BB22154F19100E5FE00 /* IdealPayment.swift in Sources */,
+				5BEF7D4D21539784009B4462 /* BackendError.swift in Sources */,
+				5BEF7D4F2153C369009B4462 /* ServerErrorDetails.swift in Sources */,
+				5BEDD0E12155451400B84975 /* HeidelpayTheme.swift in Sources */,
+				5BDD340B215121BF00518AA4 /* Heidelpay.swift in Sources */,
+				5BEDD0DF2155438A00B84975 /* PaymentInputInformation.swift in Sources */,
+				5BEDD0DD215540BC00B84975 /* IBANTextField.swift in Sources */,
+				5BDD3410215123DD00518AA4 /* HTTPBackendService.swift in Sources */,
+				5BEDD0D12155409700B84975 /* ChainingTextFieldDelegate.swift in Sources */,
+				5B5C6927215294B700675523 /* PaymentMethod.swift in Sources */,
+				5B0EE52F2159283000A7E46A /* HeidelpayPaymentInfoTextField.swift in Sources */,
+				5BEDD0B321550C4600B84975 /* PaymentMethodExtension.swift in Sources */,
+				5BEDD0D22155409700B84975 /* CardCvvTextFieldDelegate.swift in Sources */,
+				5B5C691B2152592A00675523 /* SetupRequest.swift in Sources */,
+				5BE33B20215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift in Sources */,
+				5B5C692D21529FE000675523 /* Encodable+Shortcut.swift in Sources */,
+				5BEDD0D42155409700B84975 /* GroupingTextFieldDelegate.swift in Sources */,
+				5B5C69292152998B00675523 /* CreatePaymentTypeRequest.swift in Sources */,
+				5BEDD0D7215540A500B84975 /* CardNumberTextField.swift in Sources */,
+				5BEDD0B621550C4600B84975 /* CardType.swift in Sources */,
+				5BEDD0D9215540AD00B84975 /* CardExpiryTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA8E16821511AC000A26232 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0B46CE215A492C00F662EA /* PaymentTypeTest.swift in Sources */,
+				5BEDD0F22156490300B84975 /* PaymentInformationInputTest.swift in Sources */,
+				5BEF7D522153D3D5009B4462 /* FTCreatePaymentTypesTest.swift in Sources */,
+				5B5C6911215233B500675523 /* TestBackendService.swift in Sources */,
+				5BEDD0E42156431F00B84975 /* PaymentTypeInformationValidator.swift in Sources */,
+				5BEF7D5A2153E4E2009B4462 /* CreatePaymentTypeRequestTest.swift in Sources */,
+				5BEF7D562153E21C009B4462 /* ServerErrorDetailsTest.swift in Sources */,
+				5BE33B22215FDE84005B8A7F /* CardPaymentMaskTest.swift in Sources */,
+				5BEDD0EC215644FF00B84975 /* CardExpiryTextFieldTest.swift in Sources */,
+				5BEDD0EA2156443200B84975 /* GroupingStyleTest.swift in Sources */,
+				5BEDD0EE2156481B00B84975 /* CardCvvTextFieldText.swift in Sources */,
+				5B5C69232152915C00675523 /* CardPaymentTest.swift in Sources */,
+				5BEDD0E82156438700B84975 /* CardTypeTest.swift in Sources */,
+				5BEDD0F02156482D00B84975 /* CardNumberTextFieldTest.swift in Sources */,
+				5BA8E17221511AC000A26232 /* HeidelpayTests.swift in Sources */,
+				5B5C6918215239C200675523 /* PublicKeyTest.swift in Sources */,
+				5B5C6913215234A100675523 /* HTTPBackendServiceTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEDD0792155023D00B84975 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BA8E16F21511AC000A26232 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BA8E16221511AC000A26232 /* HeidelpaySDK */;
+			targetProxy = 5BA8E16E21511AC000A26232 /* PBXContainerItemProxy */;
+		};
+		5BEDD0842155024700B84975 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BEDD07C2155023D00B84975 /* HeidelpaySDKResources */;
+			targetProxy = 5BEDD0832155024700B84975 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5BA8E17521511AC000A26232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5BA8E17621511AC000A26232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5BA8E17821511AC000A26232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GEM4KA54D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				INFOPLIST_FILE = HeidelpaySDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BA8E17921511AC000A26232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2GEM4KA54D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				INFOPLIST_FILE = HeidelpaySDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5BA8E17B21511AC000A26232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GEM4KA54D;
+				INFOPLIST_FILE = HeidelpaySDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BA8E17C21511AC000A26232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GEM4KA54D;
+				INFOPLIST_FILE = HeidelpaySDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5BEDD0812155023E00B84975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = HeidelpaySDKResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDKResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		5BEDD0822155023E00B84975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = HeidelpaySDKResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDKResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BA8E15D21511AC000A26232 /* Build configuration list for PBXProject "Heidelpay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA8E17521511AC000A26232 /* Debug */,
+				5BA8E17621511AC000A26232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BA8E17721511AC000A26232 /* Build configuration list for PBXNativeTarget "HeidelpaySDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA8E17821511AC000A26232 /* Debug */,
+				5BA8E17921511AC000A26232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BA8E17A21511AC000A26232 /* Build configuration list for PBXNativeTarget "HeidelpaySDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BA8E17B21511AC000A26232 /* Debug */,
+				5BA8E17C21511AC000A26232 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BEDD0802155023E00B84975 /* Build configuration list for PBXNativeTarget "HeidelpaySDKResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEDD0812155023E00B84975 /* Debug */,
+				5BEDD0822155023E00B84975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BA8E15A21511AC000A26232 /* Project object */;
+}
