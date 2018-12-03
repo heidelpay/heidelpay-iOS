@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.license           = { :file => 'LICENSE' }
 
     s.platform          = :ios
-    s.source            = { :git => 'https://github.com/heidelpay/heidelpay-iOS' }
+    s.source            = { :git => 'https://github.com/heidelpay/heidelpay-iOS.git' }
 
     s.ios.deployment_target = '10.3'
     s.ios.vendored_frameworks = 'HeidelPaySDK.framework'
