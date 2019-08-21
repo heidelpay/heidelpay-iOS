@@ -17,8 +17,18 @@
 
 import Foundation
 
+/// protocol implemented by all input types
+public protocol HeidelpayInput {
+    
+    /// flag to determine if the input is valid.
+    var valid: Bool { get }
+    
+    /// value of the field represented as a string
+    var stringValue: String { get }
+}
+
 /// Holds information about the user input for a card number
-public struct CardNumberInput {
+public struct CardNumberInput: HeidelpayInput {
     
     /// the determined CardType for the input
     internal(set) public var type: CardType
@@ -37,10 +47,13 @@ public struct CardNumberInput {
         return validationResult == .validChecksum
     }
 
+    public var stringValue: String {
+        return normalizedCardNumber
+    }
 }
 
 /// Holds information about the user input for a card expiry (month & year)
-public struct CardExpiryInput {
+public struct CardExpiryInput: HeidelpayInput {
     
     /// the normalized expiryDate (MM/YY) if the input is valid or the current user input otherwise
     internal(set) public var expiryDate: String
@@ -68,19 +81,27 @@ public struct CardExpiryInput {
         }
         return -1
     }
+    
+    public var stringValue: String {
+        return expiryDate
+    }
 }
 
 /// Holds information about the user input for the card CVV
-public struct CardCvvInput {
+public struct CardCvvInput: HeidelpayInput {
     /// the entered cvv
     internal(set) public var cvv: String
     
     /// flag to determine if the cvv is valid (only performs length check)
     internal(set) public var valid: Bool
+    
+    public var stringValue: String {
+        return cvv
+    }
 }
 
 /// Holds information about the user input for an IBAN
-public struct IbanInput {
+public struct IbanInput: HeidelpayInput {
     /// the entered iban
     internal(set) public var iban: String
     
@@ -90,5 +111,25 @@ public struct IbanInput {
     /// true when the validationResult is equal to validChecksum
     public var valid: Bool {
         return validationResult == .validChecksum
+    }
+    
+    public var stringValue: String {
+        return iban
+    }
+}
+
+/// Holds information about the user input for a BIC
+public struct BICInput: HeidelpayInput {
+    public var stringValue: String {
+        return bic
+    }
+    
+    /// the entered bic
+    internal(set) public var bic: String
+    
+    /// true when the input is at least 8 characters
+    public var valid: Bool {
+        // bic length: http://databaseadvisors.com/pipermail/accessd/2003-November/034201.html
+        return bic.count >= 8
     }
 }

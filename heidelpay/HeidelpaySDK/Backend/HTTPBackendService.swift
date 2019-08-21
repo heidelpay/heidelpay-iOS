@@ -20,9 +20,9 @@ import Foundation
 /// implementation of the BackendService protocol which does concrete HTTPs calls.
 class HTTPBackendService: NSObject {
     /// private URLSession which is used for all heidelpay requests and which does Certificate Pinning
-    private var session: URLSession {
+    private lazy var session: URLSession = {
         return URLSession(configuration: URLSessionConfiguration.ephemeral, delegate: self, delegateQueue: nil)
-    }
+    }()
     /// environment to be used by this backend service
     private let environment: Environment
     /// public key to be used for authorization by this backend service
@@ -36,6 +36,13 @@ class HTTPBackendService: NSObject {
         self.environment = environment
         
         super.init()
+    }
+    
+    /// invalidate this instance of the backend service which
+    /// also invalidates the corresponding URLSession and avoids
+    /// a memory leak
+    func invalidate() {
+        session.invalidateAndCancel()
     }
     
     /// build a URLRequest object for the given backend request
@@ -200,7 +207,7 @@ extension HTTPBackendService: URLSessionDelegate {
             
             var error: Unmanaged<CFError>?
             if let pubKeyData = SecKeyCopyExternalRepresentation(pubKey!, &error) {
-                var keyWithHeader = Data(bytes: HTTPBackendService.rsa2048Asn1Header)
+                var keyWithHeader = Data(HTTPBackendService.rsa2048Asn1Header)
                 keyWithHeader.append(pubKeyData as Data)
                 let sha256Key = sha256(keyWithHeader)
                 if !environment.pinnedPublicKeyHash.contains(sha256Key) {
@@ -223,8 +230,8 @@ extension HTTPBackendService: URLSessionDelegate {
     private func sha256(_ data: Data) -> String {
         var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
         data.withUnsafeBytes {
-            _ = CC_SHA256($0, CC_LONG(data.count), &hash)
+            _ = CC_SHA256($0.baseAddress, CC_LONG(data.count), &hash)
         }
-        return Data(bytes: hash).base64EncodedString()
+        return Data(hash).base64EncodedString()
     }
 }

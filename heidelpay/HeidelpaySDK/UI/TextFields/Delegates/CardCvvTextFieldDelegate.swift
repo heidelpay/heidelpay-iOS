@@ -18,15 +18,12 @@
 import UIKit
 
 /// Custom Delegate for Card CVV input
-class CardCvvTextFieldDelegate: ChainingTextFieldDelegate {
+class CardCvvTextFieldDelegate: NSObject, UITextFieldDelegate {
 
     /// Handles text change; Only allow text change if the resulting string is 3 characters or smaller
-    override public func textField(_ textField: UITextField,
-                                   shouldChangeCharactersIn range: NSRange,
-                                   replacementString string: String) -> Bool {
-        if chainedDelegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) == false {
-            return false
-        }
+    public func textField(_ textField: UITextField,
+                          shouldChangeCharactersIn range: NSRange,
+                          replacementString string: String) -> Bool {
         
         if let text = String.heidelpay_nonEmptyCondensedString(textField.text) {
             return (text as NSString).replacingCharacters(in: range, with: string).count <= 3

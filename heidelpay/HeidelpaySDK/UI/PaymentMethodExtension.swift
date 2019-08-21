@@ -24,19 +24,32 @@ public extension PaymentMethod {
     var icon: UIImage? {
         switch self {
         case .card:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-genericcard")
+            return UIImage.heidelpay_resourceImage(named: "card")
         case .sepaDirectDebit, .sepaDirectDebitGuaranteed:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-sepa")            
+            return UIImage.heidelpay_resourceImage(named: "sepa")
         case .paypal:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-paypal")
+            return UIImage.heidelpay_resourceImage(named: "paypal")
         case .sofort:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-sofort")
-        default: return nil
+            return UIImage.heidelpay_resourceImage(named: "sofort")
+        case .invoice:
+            return UIImage.heidelpay_resourceImage(named: "invoice")
+        case .invoiceGuaranteed:
+            return UIImage.heidelpay_resourceImage(named: "invoice-guaranteed")
+        case .giropay:
+            return UIImage.heidelpay_resourceImage(named: "giropay")
+        case .prepayment:
+            return UIImage.heidelpay_resourceImage(named: "prepayment")
+        case .przelewy24:
+            return UIImage.heidelpay_resourceImage(named: "przelewy-24")
+        case .ideal:
+            return UIImage.heidelpay_resourceImage(named: "ideal")
+        case .applepay:
+            return UIImage.heidelpay_resourceImage(named: "apple-pay")
         }
     }
     
     /// printable name of the Payment Method
-    public var displayName: String {
+    var displayName: String {
         switch self {
         case .card: return "Card"
         case .sepaDirectDebit: return "Sepa Direct Debit"
@@ -49,12 +62,13 @@ public extension PaymentMethod {
         case .prepayment: return "Prepayment"
         case .przelewy24: return "Przelewy24"
         case .ideal: return "iDEAL"
+        case .applepay: return "Apple Pay"            
         }
     }
     
     /// indicates if there might be multiple Payment Type instances of that payment method
     /// for a single customer
-    public var multipleInstancesAllowed: Bool {
+    var multipleInstancesAllowed: Bool {
         switch self {
         case .card, .sepaDirectDebit, .sepaDirectDebitGuaranteed, .ideal:
             return true

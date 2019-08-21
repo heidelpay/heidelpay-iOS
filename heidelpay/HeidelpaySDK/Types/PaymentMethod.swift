@@ -52,4 +52,12 @@ public enum PaymentMethod: String {
     
     /// ideal
     case ideal
+    
+    /// Apple Pay
+    case applepay
+    
+    /// backend path used to create a payment type for this method
+    var createPaymentTypeBackendPath: String {
+        return rawValue
+    }
 }

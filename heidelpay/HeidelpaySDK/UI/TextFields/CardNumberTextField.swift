@@ -30,92 +30,58 @@ import UIKit
 ///
 public class CardNumberTextField: HeidelpayPaymentInfoTextField {    
     
-    /// The validated user input or nil if the input is empty
-    private(set) public var userInput: CardNumberInput?
-    
-    private lazy var cardIconImageView: UIImageView = {
-        let imageView = UIImageView(image: nil)
-        imageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        imageView.tintColor = theme.creditCardIconTintColor
-        imageView.contentMode = .left        
-        return imageView
-    }()
-    
     override func commonInit() {
         let initialDelegate = CardNumberTextFieldDelegate(groupingSeparator: " ", groupingMode:
             .fixedGroupsAndVariableLength(groupSize: 4, maximumLength: 16))
         
-        super.setup(placeHolder: "Card Number", internalDelegate: initialDelegate)
+        super.setup(placeHolder: "1234 1234 1234 1234", textFieldDelegate: initialDelegate)
         
-        leftViewMode = .always
-        
-        leftView = cardIconImageView        
-    }
-    
-    private func setFallbackCardImage() {
-        let targetSize = CGSize(width: 25, height: 40)
-        cardIconImageView.image = PaymentMethod.card.icon?.heidelpay_resize(targetSize: targetSize)            
+        updateImage(image: CardType.placeholderIcon)
     }
     
     /// Handle a text change in the text field, check if the entered card number is valid and set userInput accordingly
     /// Sets the correct TextFieldDelegate to automatically switched grouping modes and styles depending on card type
     override func handleTextDidChangeNotification() {
-        guard let internalDelegate = internalTextFieldDelegate as? CardNumberTextFieldDelegate else {
+        guard let internalDelegate = delegate as? CardNumberTextFieldDelegate else {
             return
         }
         
         if let cardNumber = String.heidelpay_nonEmptyCondensedString(text,
                                                 groupingSeparator: internalDelegate.groupingSeparator) {
             let cardType = CardType(cardNumber: cardNumber)
+            /*
             setInternalTextFieldDelegate(CardNumberTextFieldDelegate(groupingSeparator: " ",
                                                                      groupingMode: cardType.groupingMode))
-            cardIconImageView.image = cardType.cardIconWithTargetSize(CGSize(width: 25, height: 40))
+            */
+            updateImage(image: cardType.icon)
             
-            userInput = CardNumberInput(type: cardType,
-                                        normalizedCardNumber: cardNumber,
-                                        formattedCardNumber: internalDelegate.groupedText(cardNumber),
-                                        validationResult: cardType.validate(cardNumber: cardNumber))
+            let cardInput = CardNumberInput(type: cardType,
+                                            normalizedCardNumber: cardNumber,
+                                            formattedCardNumber: internalDelegate.groupedText(cardNumber),
+                                            validationResult: cardType.validate(cardNumber: cardNumber))
             
-            switch userInput!.validationResult {
-            case .validChecksum, .invalidLength:
+            switch cardInput.validationResult {
+            case .validChecksum:
                 textColor = theme.textColor
+                
+            case .invalidLength:
+                textColor = theme.textColor
+                
             default:
                 textColor = theme.errorColor
             }
+            
+            updateValue(newValue: cardInput)
         } else {
-            let groupingMode = GroupingStyle.fixedGroupsAndVariableLength(groupSize: 4, maximumLength: 16)
-            let newDelegate = CardNumberTextFieldDelegate(groupingSeparator: " ", groupingMode: groupingMode)
-            setInternalTextFieldDelegate(newDelegate)
-            setFallbackCardImage()
-            userInput = nil
+            
+            updateImage(image: CardType.placeholderIcon)
+            
+            //let groupingMode = GroupingStyle.fixedGroupsAndVariableLength(groupSize: 4, maximumLength: 16)
+            //let newDelegate = CardNumberTextFieldDelegate(groupingSeparator: " ", groupingMode: groupingMode)
+            //setInternalTextFieldDelegate(newDelegate)
+            
+            updateValue(newValue: nil)
             textColor = theme.textColor
-        }
-    }
-    
-    /// Updates the internal text field delegate to handle Grouping and Formatting
-    /// If the delegate change causes the text field content to change (because of a different formatting)
-    /// then the text is automatically updated
-    override func setInternalTextFieldDelegate(_ internalDelegate: ChainingTextFieldDelegate) {
-        guard let newDelegate = internalDelegate as? CardNumberTextFieldDelegate else {
-            return
-        }
-        if let oldDelegate = internalTextFieldDelegate as? CardNumberTextFieldDelegate {
-            if oldDelegate.groupingMode == newDelegate.groupingMode {
-                return
-            }
-        }
-        
-        super.setInternalTextFieldDelegate(newDelegate)
-        
-        let updatedGroupedText = newDelegate.groupedText(text)
-        if updatedGroupedText != text {
-            text = updatedGroupedText
-            DispatchQueue.main.async { [weak self] in
-                if let strongSelf = self {
-                    strongSelf.selectedTextRange = strongSelf.textRange(from: strongSelf.endOfDocument,
-                                                                        to: strongSelf.endOfDocument)
-                }
-            }
         }
     }
     

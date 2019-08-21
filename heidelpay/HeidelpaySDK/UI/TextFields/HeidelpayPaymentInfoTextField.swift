@@ -21,21 +21,24 @@ import UIKit
 
 /// base class for heidelpay UI components for entering
 /// payment information.
-public class HeidelpayPaymentInfoTextField: UITextField {
+public class HeidelpayPaymentInfoTextField: UITextField, HeidelpayInputField {
     
-    private(set) var internalTextFieldDelegate: ChainingTextFieldDelegate = ChainingTextFieldDelegate()
-    private weak var externalTextFieldDelegate: UITextFieldDelegate?
+    public weak var inputFieldDelegate: HeidelpayInputFieldDelegate?
+    
+    private var strongReferenceToDelegate: UITextFieldDelegate?
+    
+    private(set) public var value: HeidelpayInput?
+    
+    public var isValid: Bool {
+        return value?.valid ?? false
+    }
     
     var theme: HeidelpayTheme = .sharedInstance
     
-    override public var delegate: UITextFieldDelegate? {
-        didSet {
-            if delegate == nil || !(delegate is ChainingTextFieldDelegate) {
-                self.externalTextFieldDelegate = delegate
-                super.delegate = internalTextFieldDelegate
-                internalTextFieldDelegate.chainedDelegate = externalTextFieldDelegate
-            }
-        }
+    func updateValue(newValue: HeidelpayInput?) {
+        self.value = newValue
+        
+        inputFieldDelegate?.inputFieldDidChange(self)
     }
     
     public override init(frame: CGRect) {
@@ -65,17 +68,21 @@ public class HeidelpayPaymentInfoTextField: UITextField {
         
     }
     
-    func setup(placeHolder: String,
-               internalDelegate: ChainingTextFieldDelegate,
-               keyboardType: UIKeyboardType = .numberPad) {
-        setInternalTextFieldDelegate(internalDelegate)
-        
-        super.delegate = internalTextFieldDelegate
+    func setup(placeHolder: String, textFieldDelegate: UITextFieldDelegate, keyboardType: UIKeyboardType = .numberPad) {
+        self.delegate = textFieldDelegate
+        self.strongReferenceToDelegate = textFieldDelegate
         
         self.keyboardType = keyboardType
         
         font = theme.font
         textColor = theme.textColor
+        
+        leftViewMode = .always
+        
+        let imageView = UIImageView(image: nil)
+        imageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        imageView.contentMode = .left
+        leftView = imageView
 
         let sel = #selector(HeidelpayPaymentInfoTextField.handleTextDidChangeNotification)
         NotificationCenter.default.addObserver(self,
@@ -90,15 +97,28 @@ public class HeidelpayPaymentInfoTextField: UITextField {
         attributedPlaceholder = NSAttributedString(string: placeHolder,
                                                    attributes: placeholderAttributes)
 
-    }
-    
-    func setInternalTextFieldDelegate(_ internalDelegate: ChainingTextFieldDelegate) {
-        let chainedDelegate = internalTextFieldDelegate.chainedDelegate
-        internalTextFieldDelegate = internalDelegate
-        internalDelegate.chainedDelegate = chainedDelegate
-    }
+    }    
     
     @objc func handleTextDidChangeNotification() {
         
+    }
+    
+    func updateImage(image: UIImage?) {
+        guard let imageView = self.leftView as? UIImageView else {
+            return
+        }
+        imageView.image = image?.heidelpay_resize(targetSize: imageTargetSize)
+    }
+    
+    private var imageTargetSize: CGSize = CGSize(width: 20, height: 20)
+    
+    func setHasError() {
+        updateImage(image: UIImage.heidelpay_resourceImage(named: "error"))
+        textColor = theme.errorColor
+    }
+    
+    func setIsValid() {
+        updateImage(image: UIImage.heidelpay_resourceImage(named: "success"))
+        textColor = theme.textColor
     }
 }

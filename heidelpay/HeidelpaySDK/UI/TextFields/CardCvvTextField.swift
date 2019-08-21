@@ -29,25 +29,35 @@ import UIKit
 ///
 public class CardCvvTextField: HeidelpayPaymentInfoTextField {
     
-    /// the validated input from the user or nil if the input is empty
-    private(set) public var userInput: CardCvvInput?
-    
     override func commonInit() {
-        setup(placeHolder: "CVC", internalDelegate: CardCvvTextFieldDelegate())
+        setup(placeHolder: "123", textFieldDelegate: CardCvvTextFieldDelegate())
         
         isSecureTextEntry = true
+        
+        setNeedsInput()
+    }
+    
+    private func setNeedsInput() {
+        updateImage(image: UIImage.heidelpay_resourceImage(named: "cvc-input-empty"))
+        textColor = theme.textColor
     }
     
     /// Handle a text change in the text field, check if the entered CVV is valid and set userInput accordingly
     override func handleTextDidChangeNotification() {
+        let cvvInput: CardCvvInput?
+        
         if let cardCVV = String.heidelpay_asNonEmptyStringWithoutWhitespaces(text) {
             if cardCVV.count == 3 {
-                userInput = CardCvvInput(cvv: cardCVV, valid: true)
+                cvvInput = CardCvvInput(cvv: cardCVV, valid: true)
+                setIsValid()
             } else {
-                userInput = CardCvvInput(cvv: cardCVV, valid: false)
+                cvvInput = CardCvvInput(cvv: cardCVV, valid: false)
+                setNeedsInput()
             }
         } else {
-            userInput = nil
+            setNeedsInput()
+            cvvInput = nil
         }
+        updateValue(newValue: cvvInput)
     }
 }

@@ -52,12 +52,7 @@ extension UIImage {
     /// - Parameter named: The name of the image resourcs (without the file extension)
     /// - Returns: the loaded image resource or nil if the bundle or resource could not be loaded
     class func heidelpay_resourceImage(named: String) -> UIImage? {
-        if let frameworkResourcePath = Bundle(for: Heidelpay.self).resourcePath {
-            let bundlePath = (frameworkResourcePath as NSString).appendingPathComponent("HeidelpaySDKResources.bundle")
-            if let bundle = Bundle(path: bundlePath) {
-                return UIImage(named: named, in: bundle, compatibleWith: nil)
-            }
-        }
-        return nil
+        let bundle = Bundle(for: Heidelpay.self)
+        return UIImage(named: named, in: bundle, compatibleWith: nil)
     }
 }

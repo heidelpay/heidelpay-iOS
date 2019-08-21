@@ -18,7 +18,7 @@
 import UIKit
 
 /// UITextFieldDelegate that can handle grouping
-class GroupingTextFieldDelegate: ChainingTextFieldDelegate {
+class GroupingTextFieldDelegate: NSObject, UITextFieldDelegate {
 
     /// the grouping style to use
     private var _groupingMode: GroupingStyle
@@ -39,20 +39,16 @@ class GroupingTextFieldDelegate: ChainingTextFieldDelegate {
     /// Handle text change and automatically insert of remove grouping separators
     /// Also validates if a change is allowed based on the current groupingStyle (because of a length limitation)
     /// and optionally blocks input accordingly
-    public override func textField(_ textField: UITextField,
-                                   shouldChangeCharactersIn range: NSRange,
-                                   replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField,
+                          shouldChangeCharactersIn range: NSRange,
+                          replacementString string: String) -> Bool {
         var text = ""
         if let currentText = textField.text {
             text = currentText
         }
         
         var changedText = (text as NSString).replacingCharacters(in: range, with: string)
-        
-        if chainedDelegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) == false {
-            return false
-        }
-        
+                
         if String.heidelpay_hasRemovedSingleCharacterFrom(originalText: text, changedText: changedText) {
             // removing a single character
             if text.hasSuffix(groupingSeparator) {

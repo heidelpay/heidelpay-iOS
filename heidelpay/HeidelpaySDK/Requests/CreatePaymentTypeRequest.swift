@@ -25,7 +25,7 @@ import Foundation
 struct CreatePaymentTypeRequest: HeidelpayDataRequest {
     /// request path which depends on the payment method to be created
     var requestPath: String {
-        return "types/\(type.method.rawValue)"
+        return "types/\(type.method.createPaymentTypeBackendPath)"
     }
     /// payment type that shall be created
     private let type: CreatePaymentType
@@ -36,8 +36,11 @@ struct CreatePaymentTypeRequest: HeidelpayDataRequest {
     }
     
     func encodeAsJSON() throws -> Data {
-        if let codableType = type as? Codable {
+        if let codableType = type as? Encodable {
             return try codableType.encodeAsJSON()
+        }
+        if let jsonSerializationType = type as? JSONSerializable {
+            return try jsonSerializationType.encodeAsJSON()
         }
         throw BackendError.invalidRequest
     }
@@ -47,7 +50,16 @@ struct CreatePaymentTypeRequest: HeidelpayDataRequest {
         guard let method = PaymentMethod(rawValue: response.method) else {
             throw BackendError.invalidServerResponse
         }
-        return type.paymentType(paymentId: response.id, paymentMethod: method, json: [:])
+        let json: [String: Any]
+        if var jsonBackend = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            // remove data that is already mapped by CreatePaymentTypeResponse
+            jsonBackend["id"] = nil
+            jsonBackend["method"] = nil
+            json = jsonBackend
+        } else {
+            json = [:]
+        }
+        return type.paymentType(paymentId: response.id, paymentMethod: method, json: json)
     }
 }
 

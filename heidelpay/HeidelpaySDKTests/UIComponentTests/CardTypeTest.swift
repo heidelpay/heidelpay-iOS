@@ -20,6 +20,13 @@ import XCTest
 
 class CardTypeTest: XCTestCase {
     
+    func testCardFromBrand() {
+        
+        XCTAssertEqual(CardType(brandName: "VISA"), .visa)
+        XCTAssertEqual(CardType(brandName: "MASTER"), .masterCard)
+        
+    }
+    
     func testCardTypesForNumber() {
         XCTAssertEqual(CardType.unknown, CardType(cardNumber: "1234"))
         XCTAssertEqual(CardType.masterCard, CardType(cardNumber: "2345"))

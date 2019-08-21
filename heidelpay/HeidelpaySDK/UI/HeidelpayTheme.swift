@@ -33,7 +33,6 @@ public class HeidelpayTheme {
                                        blue: 214.0/255.0,
                                        alpha: 1)
         self.placeholderColor = placeholderColor
-        self.creditCardIconTintColor = placeholderColor
     }
     
     /// font used by UI Components (e.g. UITextField.font)
@@ -44,10 +43,7 @@ public class HeidelpayTheme {
     
     /// placeholder color of UI Components
     public var placeholderColor: UIColor
-    
-    /// tint color for credt card icon
-    public var creditCardIconTintColor: UIColor
-    
+        
     /// color used for signaling error (border color)
-    public var errorColor = UIColor(red: 1, green: 59.0/255.0, blue: 48.0/255.0, alpha: 1)
+    public var errorColor = UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 1)
 }

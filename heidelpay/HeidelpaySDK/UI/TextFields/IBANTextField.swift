@@ -29,23 +29,40 @@ import UIKit
 ///
 public class IBANTextField: HeidelpayPaymentInfoTextField {
     
-    /// the validated input from the user or nil if the input is empty
-    private(set) public var userInput: IbanInput?
-    
     override func commonInit() {
-        setup(placeHolder: "IBAN", internalDelegate: IBANTextFieldDelegate(), keyboardType: .alphabet)
+        setup(placeHolder: "DE56 5199 2312 3609 7838 68",
+              textFieldDelegate: IBANTextFieldDelegate(), keyboardType: .alphabet)
         
         autocapitalizationType = .allCharacters
-        autocorrectionType = .no        
+        autocorrectionType = .no
+        
+        setNeedsInput()
+    }
+    
+    private func setNeedsInput() {
+        updateImage(image: UIImage.heidelpay_resourceImage(named: "card-debit"))
+        textColor = theme.textColor
     }
     
     /// Handle a text change in the text field, check if the entered IBAN is valid and set userInput accordingly
     override func handleTextDidChangeNotification() {
         if let iban = String.heidelpay_asNonEmptyStringWithoutWhitespaces(text) {
             let validationResult = PaymentTypeInformationValidator.shared.validate(iban: iban)
-            userInput = IbanInput(iban: iban, validationResult: validationResult)
+            let value = IbanInput(iban: iban, validationResult: validationResult)
+            updateValue(newValue: value)
+            switch validationResult {
+            case .validChecksum:
+                setIsValid()
+            case .invalidLength:
+                setNeedsInput()
+            case .invalidChecksum:
+                setHasError()
+            case .invalidCharacters:
+                setHasError()
+            }
         } else {
-            userInput = nil
+            setNeedsInput()
+            updateValue(newValue: nil)
         }
     }
 

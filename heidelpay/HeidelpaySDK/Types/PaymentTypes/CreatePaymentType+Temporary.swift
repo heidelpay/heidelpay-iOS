@@ -17,27 +17,6 @@
 
 import Foundation
 
-extension CardPayment {
-    static func mask(cardNumber: String) -> String {
-        if cardNumber.count > 12 {
-            let lowerIndex = String.Index.init(encodedOffset: 6)
-            let upperIndex = String.Index.init(encodedOffset: 12)
-            return cardNumber[..<lowerIndex] + "******" + cardNumber[upperIndex...]
-        } else {
-            return String(repeating: "*", count: cardNumber.count)
-        }
-    }
-    
-    func paymentType(paymentId: String, paymentMethod: PaymentMethod, json: [String: Any]) -> PaymentType {
-        let data = [
-            "brand": "Card",
-            "number": CardPayment.mask(cardNumber: number),
-            "expiryDate": expiryDate
-        ]
-        return PaymentType(paymentId: paymentId, paymentMethod: paymentMethod, title: method.rawValue, data: data)
-    }
-}
-
 extension SepaDirectDebitPayment {
     func paymentType(paymentId: String, paymentMethod: PaymentMethod, json: [String: Any]) -> PaymentType {
         let data = [

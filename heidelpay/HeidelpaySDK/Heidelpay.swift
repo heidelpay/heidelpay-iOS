@@ -84,6 +84,10 @@ public class Heidelpay {
         self.paymentMethods = paymentMethods        
     }
     
+    deinit {
+        backendService.invalidate()
+    }
+    
     /// create a new payment type
     /// - Parameter type: Payment Type to create
     /// - Parameter completion: CreatePaymentCompletionBlock  that will be called in failure and success.
@@ -134,11 +138,15 @@ public class Heidelpay {
                 
             } else if let error = error {
                 
+                backendService.invalidate()
+                
                 execOnMain {
                     completion(nil, HeidelpayError.mapFrom(backendError: error))
                 }
                 
             } else {
+                
+                backendService.invalidate()
                 
                 execOnMain {
                     completion(nil, .generalProcessingError)

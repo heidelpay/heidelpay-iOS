@@ -27,9 +27,9 @@ class CardExpiryTextFieldTest: XCTestCase {
         
         expiryTextField.text = nil
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertEqual(expiryTextField.userInput?.expiryDate, "")
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertEqual(expiryTextField.value?.stringValue, "")
+        XCTAssertFalse(expiryTextField.value!.valid)
         
         expiryTextField.text = ""
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
@@ -62,9 +62,9 @@ class CardExpiryTextFieldTest: XCTestCase {
         XCTAssertEqual(expiryTextField.text, "01/2")
         expiryTextField.text = "01/23"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertEqual(expiryTextField.userInput?.expiryDate, "01/23")
-        XCTAssertTrue(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertEqual(expiryTextField.value?.stringValue, "01/23")
+        XCTAssertTrue(expiryTextField.value!.valid)
         
         XCTAssertFalse(expiryDelegate.textField(expiryTextField,
                                                 shouldChangeCharactersIn: NSRange(location: 5, length: 0),
@@ -78,7 +78,7 @@ class CardExpiryTextFieldTest: XCTestCase {
         
         expiryTextField.text = "01/1"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertFalse(expiryTextField.value!.valid)
         
         XCTAssertFalse(expiryDelegate.textField(expiryTextField,
                                                 shouldChangeCharactersIn: NSRange(location: 3, length: 1),
@@ -92,7 +92,7 @@ class CardExpiryTextFieldTest: XCTestCase {
         
         expiryTextField.text = "0"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertFalse(expiryTextField.value!.valid)
         XCTAssertFalse(expiryDelegate.textField(expiryTextField,
                                                 shouldChangeCharactersIn: NSRange(location: 1, length: 0),
                                                 replacementString: "0"))
@@ -104,9 +104,9 @@ class CardExpiryTextFieldTest: XCTestCase {
                                                 shouldChangeCharactersIn: NSRange(location: 0, length: 0),
                                                 replacementString: "2"))
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertEqual(expiryTextField.userInput?.expiryDate, "02/")
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertEqual(expiryTextField.value?.stringValue, "02/")
+        XCTAssertFalse(expiryTextField.value!.valid)
         XCTAssertEqual(expiryTextField.text, "02/")
         
         XCTAssertFalse(expiryDelegate.textField(expiryTextField,
@@ -123,26 +123,26 @@ class CardExpiryTextFieldTest: XCTestCase {
         
         expiryTextField.text = "01/16"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertEqual(expiryTextField.userInput?.expiryDate, "01/16")
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertEqual(expiryTextField.value?.stringValue, "01/16")
+        XCTAssertFalse(expiryTextField.value!.valid)
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/YY"
         expiryTextField.text = formatter.string(from: Date())
         
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertTrue(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertTrue(expiryTextField.value!.valid)
         
         expiryTextField.text = "00/23"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertFalse(expiryTextField.value!.valid)
         
         expiryTextField.text = "14/23"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: expiryTextField)
-        XCTAssertNotNil(expiryTextField.userInput)
-        XCTAssertFalse(expiryTextField.userInput!.valid)
+        XCTAssertNotNil(expiryTextField.value)
+        XCTAssertFalse(expiryTextField.value!.valid)
     }
 }

@@ -24,9 +24,7 @@ class CardNumberTextFieldDelegate: GroupingTextFieldDelegate {
     public override func textField(_ textField: UITextField,
                                    shouldChangeCharactersIn range: NSRange,
                                    replacementString string: String) -> Bool {
-        if chainedDelegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) == false {
-            return false
-        }
+
         let originalText = String.heidelpay_nonOptionalString(textField.text)
         let changedText = (originalText as NSString).replacingCharacters(in: range, with: string)
         

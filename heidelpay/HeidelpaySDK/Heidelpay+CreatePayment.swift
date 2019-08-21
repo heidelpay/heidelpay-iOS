@@ -16,6 +16,7 @@
 
 
 import Foundation
+import PassKit
 
 /// extension with methods to create payment types
 extension Heidelpay {
@@ -91,6 +92,20 @@ extension Heidelpay {
     /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
     public func createPaymentIdeal(bic: String, completion: @escaping CreatePaymentCompletionBlock) {
         createPayment(type: IdealPayment(bic: bic), completion: completion)
+    }
+
+    /// create an Apple Pay payment type
+    /// - Parameter paymentToken: Payment Token of the Apple Pay transaction
+    /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
+    public func createApplePay(paymentToken: PKPaymentToken, completion: @escaping CreatePaymentCompletionBlock) {
+        createApplePay(paymentTokenData: paymentToken.paymentData, completion: completion)        
+    }
+    
+    /// create an Apple Pay payment type based on the payment token data for unit testing
+    /// - Parameter paymentData: Payment Token data of the Apple Pay transaction
+    /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
+    public func createApplePay(paymentTokenData: Data, completion: @escaping CreatePaymentCompletionBlock) {
+        createPayment(type: ApplePayPayment(paymentTokenData: paymentTokenData), completion: completion)
     }
 
 }

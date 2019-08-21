@@ -35,9 +35,9 @@ class CardCvvTextFieldTest: XCTestCase {
         
         cvvTexField.text = "1"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: cvvTexField)
-        XCTAssertNotNil(cvvTexField.userInput)
-        XCTAssertEqual(cvvTexField.userInput?.cvv, "1")
-        XCTAssertFalse(cvvTexField.userInput!.valid)
+        XCTAssertNotNil(cvvTexField.value)
+        XCTAssertEqual(cvvTexField.value?.stringValue, "1")
+        XCTAssertFalse(cvvTexField.value!.valid)
         XCTAssertTrue(cvvDelegate.textField(cvvTexField,
                                             shouldChangeCharactersIn: NSRange(location: 1, length: 0),
                                             replacementString: "1"))
@@ -45,9 +45,9 @@ class CardCvvTextFieldTest: XCTestCase {
         
         cvvTexField.text = "11"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: cvvTexField)
-        XCTAssertNotNil(cvvTexField.userInput)
-        XCTAssertEqual(cvvTexField.userInput?.cvv, "11")
-        XCTAssertFalse(cvvTexField.userInput!.valid)
+        XCTAssertNotNil(cvvTexField.value)
+        XCTAssertEqual(cvvTexField.value?.stringValue, "11")
+        XCTAssertFalse(cvvTexField.value!.valid)
         XCTAssertTrue(cvvDelegate.textField(cvvTexField,
                                             shouldChangeCharactersIn: NSRange(location: 2, length: 0),
                                             replacementString: "1"))
@@ -55,9 +55,9 @@ class CardCvvTextFieldTest: XCTestCase {
         
         cvvTexField.text = "111"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: cvvTexField)
-        XCTAssertNotNil(cvvTexField.userInput)
-        XCTAssertEqual(cvvTexField.userInput?.cvv, "111")
-        XCTAssertTrue(cvvTexField.userInput!.valid)
+        XCTAssertNotNil(cvvTexField.value)
+        XCTAssertEqual(cvvTexField.value?.stringValue, "111")
+        XCTAssertTrue(cvvTexField.value!.valid)
         XCTAssertFalse(cvvDelegate.textField(cvvTexField,
                                              shouldChangeCharactersIn: NSRange(location: 3, length: 0),
                                              replacementString: "1"))
@@ -70,13 +70,13 @@ class CardCvvTextFieldTest: XCTestCase {
         
         cvvTexField.text = "11"
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: cvvTexField)
-        XCTAssertNotNil(cvvTexField.userInput)
-        XCTAssertEqual(cvvTexField.userInput?.cvv, "11")
-        XCTAssertFalse(cvvTexField.userInput!.valid)
+        XCTAssertNotNil(cvvTexField.value)
+        XCTAssertEqual(cvvTexField.value?.stringValue, "11")
+        XCTAssertFalse(cvvTexField.value!.valid)
         
         cvvTexField.text = nil
         NotificationCenter.default.post(name: UITextField.textDidChangeNotification, object: cvvTexField)
-        XCTAssertNil(cvvTexField.userInput)
+        XCTAssertNil(cvvTexField.value)
         XCTAssertTrue(cvvDelegate.textField(cvvTexField,
                                             shouldChangeCharactersIn: NSRange(location: 0, length: 0),
                                             replacementString: "1"))

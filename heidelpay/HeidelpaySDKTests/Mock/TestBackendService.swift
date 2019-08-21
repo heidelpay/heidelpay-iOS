@@ -42,6 +42,10 @@ class TestBackendService: BackendService {
         mockedPaths[path] = MockedJSONResponse(json: jsonResponse)
     }
     
+    func invalidate() {
+        mockedPaths.removeAll()
+    }
+    
     func perform(request: HeidelpayRequest, completionHandler: @escaping ((Any?, BackendError?) -> Void)) {
         let path = request.requestPath
         

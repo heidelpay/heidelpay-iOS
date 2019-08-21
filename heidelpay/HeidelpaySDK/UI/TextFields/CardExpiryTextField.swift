@@ -29,11 +29,15 @@ import UIKit
 ///
 public class CardExpiryTextField: HeidelpayPaymentInfoTextField {
     
-    /// the validated input from the user
-    private(set) public var userInput: CardExpiryInput?
-    
     override func commonInit() {
-        setup(placeHolder: "MM/YY", internalDelegate: CardExpiryTextFieldDelegate())
+        setup(placeHolder: "03/20", textFieldDelegate: CardExpiryTextFieldDelegate())
+        
+        setNeedsInput()
+    }
+    
+    private func setNeedsInput() {
+        updateImage(image: UIImage.heidelpay_resourceImage(named: "expiry-input-empty"))
+        textColor = theme.textColor
     }
     
     /// Handle a text change in the text field, check if the entered card expiry is valid and set userInput accordingly
@@ -42,8 +46,8 @@ public class CardExpiryTextField: HeidelpayPaymentInfoTextField {
         let cardExpiry = trimmedExpiry.replacingOccurrences(of: "/", with: "")
         
         guard cardExpiry.count == 4 else {
-            textColor = theme.textColor
-            userInput = CardExpiryInput(expiryDate: trimmedExpiry, valid: false)
+            setNeedsInput()
+            updateValue(newValue: CardExpiryInput(expiryDate: trimmedExpiry, valid: false))
             return
         }
         
@@ -61,15 +65,22 @@ public class CardExpiryTextField: HeidelpayPaymentInfoTextField {
                 (yearInExpiryAsNumber == yearNumber && monthInExpiryAsNumber < monthNumber) ||
                 monthInExpiryAsNumber > 12 ||
                 monthInExpiryAsNumber == 0 {
-                textColor = theme.errorColor
+                
+                setHasError()
+                
                 valid = false
             } else {
-                textColor = theme.textColor
+                
+                setIsValid()
+                
             }
         } else {
-            textColor = theme.textColor
+            
+            setHasError()
+            valid = false
+            
         }
-        userInput = CardExpiryInput(expiryDate: trimmedExpiry, valid: valid)
+        updateValue(newValue: CardExpiryInput(expiryDate: trimmedExpiry, valid: valid))
     }
 
 }

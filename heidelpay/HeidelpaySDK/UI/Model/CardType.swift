@@ -48,6 +48,17 @@ public enum CardType {
         }
     }
     
+    public init(brandName: String) {
+        switch brandName {
+        case "MASTER":
+            self = .masterCard
+        case "VISA":
+            self = .visa
+        default:
+            self = .unknown
+        }
+    }
+    
     var minimumLength: Int {
         switch self {
             
@@ -79,25 +90,24 @@ public enum CardType {
         }
     }
     
-    public func cardIconWithTargetSize(_ targetSize: CGSize) -> UIImage? {
+    public var icon: UIImage? {
         switch self {
             
         case .masterCard:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-mastercard")?
-                .heidelpay_resize(targetSize: targetSize)
+            return UIImage.heidelpay_resourceImage(named: "cc-mastercard")
         case .americanExpress:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-american-express")?
-                .heidelpay_resize(targetSize: targetSize)
+            return UIImage.heidelpay_resourceImage(named: "cc-amex")
         case .visa:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-visa")?
-                .heidelpay_resize(targetSize: targetSize)
+            return UIImage.heidelpay_resourceImage(named: "cc-visa")
         case .maestro:
-            return UIImage.heidelpay_resourceImage(named: "payment_method-maestro")?
-                .heidelpay_resize(targetSize: targetSize)
+            return UIImage.heidelpay_resourceImage(named: "card-debit")
         default:
-            return PaymentMethod.card.icon?.heidelpay_resize(targetSize: targetSize)
-            
+            return UIImage.heidelpay_resourceImage(named: "card-debit")            
         }
+    }
+    
+    static var placeholderIcon: UIImage? {
+        return UIImage.heidelpay_resourceImage(named: "cc-input-empty")
     }
     
     func validate(cardNumber: String) -> PaymentTypeInformationValidationResult {

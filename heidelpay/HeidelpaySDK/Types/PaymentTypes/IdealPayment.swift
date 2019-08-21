@@ -18,15 +18,15 @@
 import Foundation
 
 /// Ideal Payment Type
-public struct IdealPayment: CreatePaymentType, Codable {
-    public var method: PaymentMethod { return .ideal }
+struct IdealPayment: CreatePaymentType, Codable {
+    var method: PaymentMethod { return .ideal }
     
     /// bic
     let bic: String
     
     /// initializer with bank name
     /// - Parameter bankName: bank name to use for this Ideal payment
-    public init(bic: String) {
+    init(bic: String) {
         self.bic = bic
     }
 }

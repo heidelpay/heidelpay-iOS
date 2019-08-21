@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|  
     s.name              = 'HeidelpaySDK'
-    s.version           = '1.0.0'
+    s.version           = '1.1.0'
     s.summary           = 'heidelpay SDK for mobile payment'
     s.homepage          = 'http://heidelpay.com/'
 

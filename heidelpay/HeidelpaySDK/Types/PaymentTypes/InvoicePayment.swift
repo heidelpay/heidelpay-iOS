@@ -20,7 +20,7 @@ import Foundation
 /// Invoice Payment Type
 /// There is a guaranteed and a non guaranteed version of the Invoice Payment type
 /// which can be set as an additional constructor parameter. Default is non guaranteed.
-public struct InvoicePayment: CreatePaymentType, Codable {
+struct InvoicePayment: CreatePaymentType, Codable {
     
     /// dependent on the flag guaranteed the method is invoice guaranteed or not guaranteed
     var method: PaymentMethod {

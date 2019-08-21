@@ -31,5 +31,9 @@ protocol BackendService {
     ///                                In case of an error a BackendError is provided as second parameter and the first
     ///                                parameter is nil.
     func perform(request: HeidelpayRequest, completionHandler: @escaping ((Any?, BackendError?) -> Void))
+ 
+    /// invalid the BackendService instance for further use
+    /// (this is necessary to invalidate the associated URLSession)
+    func invalidate()
     
 }

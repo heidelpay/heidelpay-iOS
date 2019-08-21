@@ -18,18 +18,15 @@
 import UIKit
 
 /// Custom Delegate for Card Expiry input
-class CardExpiryTextFieldDelegate: ChainingTextFieldDelegate {
+class CardExpiryTextFieldDelegate: NSObject, UITextFieldDelegate {
 
     /// Handles text change; Automatically handles the following tasks:
     ///     - validate input so that the user cannot enter invalid months,
     ///     - add and remove '/' separator between month and year,
     ///     - automatically add leading zeros for month (e.g. if the user starts with a 2 or higher)
-    override public func textField(_ textField: UITextField,
-                                   shouldChangeCharactersIn range: NSRange,
-                                   replacementString string: String) -> Bool {
-        if chainedDelegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) == false {
-            return false
-        }
+    public func textField(_ textField: UITextField,
+                          shouldChangeCharactersIn range: NSRange,
+                          replacementString string: String) -> Bool {
         
         if let text = textField.text {
             var changedText = (text as NSString).replacingCharacters(in: range, with: string)

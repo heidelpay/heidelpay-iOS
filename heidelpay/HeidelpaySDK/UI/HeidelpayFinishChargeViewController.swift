@@ -28,9 +28,9 @@ public protocol HeidelpayFinishChargeViewControllerDelegate: class {
     /// - Parameter canceledByUser: true if the user canceled the process by tapping the cancel button. This does not
     ///                             necessarily indicate that the payment was canceled. You have to check the state from
     ///                             your server!
-    /// - Parameter heidelPayController: heidelpay view controller that called the delegate method
+    /// - Parameter heidelpayController: heidelpay view controller that called the delegate method
     func heidelpayChargeViewControllerDidFinish(canceledByUser: Bool,
-                                                heidelPayController: HeidelpayFinishChargeViewController)
+                                                heidelpayController: HeidelpayFinishChargeViewController)
 }
 
 /// View Controller for handling pending charges where the user
@@ -114,7 +114,7 @@ public class HeidelpayFinishChargeViewController: UIViewController {
     }
     
     @objc private func cancelPaymentRedirection(_ sender: Any) {
-        delegate?.heidelpayChargeViewControllerDidFinish(canceledByUser: true, heidelPayController: self)
+        delegate?.heidelpayChargeViewControllerDidFinish(canceledByUser: true, heidelpayController: self)
     }
 }
 
@@ -134,7 +134,7 @@ extension HeidelpayFinishChargeViewController: WKNavigationDelegate {
                 decisionHandler(.cancel)
                 
                 DispatchQueue.main.async {
-                    delegate.heidelpayChargeViewControllerDidFinish(canceledByUser: false, heidelPayController: self)
+                    delegate.heidelpayChargeViewControllerDidFinish(canceledByUser: false, heidelpayController: self)
                 }
                 
                 return

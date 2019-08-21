@@ -26,14 +26,14 @@ import Foundation
 /// is more than one error, the property addtionalErrorDetails holds the further errors.
 public struct ServerErrorDetails {
     /// error code as defined by the Server API
-    let code: String
+    public let code: String
     /// user readable message (for internal use)
-    let merchantMessage: String
+    public let merchantMessage: String
     /// user readable message for customer
-    let customerMessage: String
+    public let customerMessage: String
     
     /// additional errors send by the server for a particular request
-    let additionalErrorDetails: [ServerErrorDetails]?
+    public let additionalErrorDetails: [ServerErrorDetails]?
     
     /// initializer with main error and optional additional errors
     /// - Parameter backendServerError: first error reported by the backend
