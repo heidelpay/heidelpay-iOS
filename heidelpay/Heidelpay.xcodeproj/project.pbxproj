@@ -27,11 +27,6 @@
 		5B73BCD421EF687D00D0995B /* BICTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCD321EF687D00D0995B /* BICTextField.swift */; };
 		5B73BCD621EF6AA900D0995B /* BICTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCD521EF6AA900D0995B /* BICTextFieldDelegate.swift */; };
 		5B73BCDE21EF7C6E00D0995B /* BICTextFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCDD21EF7C6E00D0995B /* BICTextFieldTest.swift */; };
-		5B73BCE621EF80DE00D0995B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCE521EF80DE00D0995B /* AppDelegate.swift */; };
-		5B73BCE821EF80DE00D0995B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCE721EF80DE00D0995B /* ViewController.swift */; };
-		5B73BCEB21EF80DE00D0995B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B73BCE921EF80DE00D0995B /* Main.storyboard */; };
-		5B73BCED21EF80DF00D0995B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73BCEC21EF80DF00D0995B /* Assets.xcassets */; };
-		5B73BCF021EF80DF00D0995B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B73BCEE21EF80DF00D0995B /* LaunchScreen.storyboard */; };
 		5B7CCB53215A514E0038FC5D /* CreatePaymentType+Temporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CCB52215A514E0038FC5D /* CreatePaymentType+Temporary.swift */; };
 		5B8C393A21AC3B8600A9AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C393921AC3B8600A9AEFC /* Assets.xcassets */; };
 		5BA0487D222FAD380081D0FD /* ApplePayPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0487C222FAD380081D0FD /* ApplePayPayment.swift */; };
@@ -79,13 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5B73BCF521EF80E900D0995B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BA8E15A21511AC000A26232 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BA8E16221511AC000A26232;
-			remoteInfo = HeidelpaySDK;
-		};
 		5BA8E16E21511AC000A26232 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5BA8E15A21511AC000A26232 /* Project object */;
@@ -116,7 +104,6 @@
 		5B73BCD321EF687D00D0995B /* BICTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BICTextField.swift; sourceTree = "<group>"; };
 		5B73BCD521EF6AA900D0995B /* BICTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BICTextFieldDelegate.swift; sourceTree = "<group>"; };
 		5B73BCDD21EF7C6E00D0995B /* BICTextFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BICTextFieldTest.swift; sourceTree = "<group>"; };
-		5B73BCE321EF80DE00D0995B /* TestAppFw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppFw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B73BCE521EF80DE00D0995B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B73BCE721EF80DE00D0995B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B73BCEA21EF80DE00D0995B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,13 +161,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5B73BCE021EF80DE00D0995B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BA8E16021511AC000A26232 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,7 +245,6 @@
 			children = (
 				5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */,
 				5BA8E16C21511AC000A26232 /* HeidelpaySDKTests.xctest */,
-				5B73BCE321EF80DE00D0995B /* TestAppFw.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,24 +409,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5B73BCE221EF80DE00D0995B /* TestAppFw */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5B73BCF221EF80DF00D0995B /* Build configuration list for PBXNativeTarget "TestAppFw" */;
-			buildPhases = (
-				5B73BCDF21EF80DE00D0995B /* Sources */,
-				5B73BCE021EF80DE00D0995B /* Frameworks */,
-				5B73BCE121EF80DE00D0995B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5B73BCF621EF80E900D0995B /* PBXTargetDependency */,
-			);
-			name = TestAppFw;
-			productName = TestAppFw;
-			productReference = 5B73BCE321EF80DE00D0995B /* TestAppFw.app */;
-			productType = "com.apple.product-type.application";
-		};
 		5BA8E16221511AC000A26232 /* HeidelpaySDK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BA8E17721511AC000A26232 /* Build configuration list for PBXNativeTarget "HeidelpaySDK" */;
@@ -456,7 +417,6 @@
 				5BA8E15F21511AC000A26232 /* Sources */,
 				5BA8E16021511AC000A26232 /* Frameworks */,
 				5BA8E16121511AC000A26232 /* Resources */,
-				5BA8E17D21511B8C00A26232 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -495,9 +455,6 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "heidelpay GmbH";
 				TargetAttributes = {
-					5B73BCE221EF80DE00D0995B = {
-						CreatedOnToolsVersion = 10.1;
-					};
 					5BA8E16221511AC000A26232 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1020;
@@ -523,22 +480,11 @@
 			targets = (
 				5BA8E16221511AC000A26232 /* HeidelpaySDK */,
 				5BA8E16B21511AC000A26232 /* HeidelpaySDKTests */,
-				5B73BCE221EF80DE00D0995B /* TestAppFw */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5B73BCE121EF80DE00D0995B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B73BCF021EF80DF00D0995B /* LaunchScreen.storyboard in Resources */,
-				5B73BCED21EF80DF00D0995B /* Assets.xcassets in Resources */,
-				5B73BCEB21EF80DE00D0995B /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BA8E16121511AC000A26232 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -556,36 +502,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5BA8E17D21511B8C00A26232 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		5B73BCDF21EF80DE00D0995B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B73BCE821EF80DE00D0995B /* ViewController.swift in Sources */,
-				5B73BCE621EF80DE00D0995B /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BA8E15F21511AC000A26232 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,11 +581,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5B73BCF621EF80E900D0995B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5BA8E16221511AC000A26232 /* HeidelpaySDK */;
-			targetProxy = 5B73BCF521EF80E900D0995B /* PBXContainerItemProxy */;
-		};
 		5BA8E16F21511AC000A26232 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5BA8E16221511AC000A26232 /* HeidelpaySDK */;
@@ -696,44 +608,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5B73BCF321EF80DF00D0995B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6849N34HD9;
-				INFOPLIST_FILE = TestAppFw/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.TestAppFw;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		5B73BCF421EF80DF00D0995B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6849N34HD9;
-				INFOPLIST_FILE = TestAppFw/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.TestAppFw;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		5BA8E17521511AC000A26232 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -956,15 +830,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B73BCF221EF80DF00D0995B /* Build configuration list for PBXNativeTarget "TestAppFw" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5B73BCF321EF80DF00D0995B /* Debug */,
-				5B73BCF421EF80DF00D0995B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5BA8E15D21511AC000A26232 /* Build configuration list for PBXProject "Heidelpay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
