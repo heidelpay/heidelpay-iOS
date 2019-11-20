@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// Public key to authenticate against the heidelpay backend

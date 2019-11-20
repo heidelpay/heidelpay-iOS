@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// enumeration of payment methods supported by the version of the SDK
@@ -38,6 +37,9 @@ public enum PaymentMethod: String {
     /// invoice guaranteed
     case invoiceGuaranteed = "invoice-guaranteed"
     
+    /// invoice factoring
+    case invoiceFactoring = "invoice-factoring"
+    
     /// giropay
     case giropay
     
@@ -56,8 +58,23 @@ public enum PaymentMethod: String {
     /// Apple Pay
     case applepay
     
+    /// Alipay
+    case alipay
+    
+    /// WeChat
+    case wechatpay
+    
+    /// PIS
+    case pis = "PIS"
+    
+    /// Hire Purchase
+    case hirePurchase = "hire-purchase-direct-debit"
+    
     /// backend path used to create a payment type for this method
     var createPaymentTypeBackendPath: String {
+        if self == .pis {
+            return "pis"
+        }
         return rawValue
     }
 }

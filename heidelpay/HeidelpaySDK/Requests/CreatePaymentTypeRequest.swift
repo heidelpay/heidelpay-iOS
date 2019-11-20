@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// heidelpay backend request for creating Payment Types

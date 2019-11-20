@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 /// Extension for UIImage providing helpful methods

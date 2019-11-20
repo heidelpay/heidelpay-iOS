@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// PaymentType protocol implemented by all concrete payment types like CardPayment for creation

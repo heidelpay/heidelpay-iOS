@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// Credit Card Payment Type
@@ -27,6 +26,16 @@ struct CardPayment: CreatePaymentType, Codable {
     let cvc: String
     /// Expiry date in format MM/YY
     let expiryDate: String
+    /// In case you have two contracts, one for 3DS and one without 3DS you can specify which one is
+    /// the preferred one when using the card type during a charge
+    let use3ds: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case number
+        case cvc
+        case expiryDate
+        case use3ds = "3ds"
+    }
     
     /// initialize with basic checks (month in range, year in range, cvs length > 2, number length >= 15)
     /// if one of the check fails this initializer returns nil
@@ -34,7 +43,9 @@ struct CardPayment: CreatePaymentType, Codable {
     /// - Parameter cvc: Card Validation Code (also named CVV)
     /// - Parameter expiryMonth: expiry month of the card
     /// - Parameter expiryYear: expiry year of the card
-    init?(number: String, cvc: String, expiryMonth: Int, expiryYear: Int) {
+    /// - Parameter use3ds: flag to indicate if 3ds shall be used for this card on charge. (Depends on your contract).
+    ///                     Default is true
+    init?(number: String, cvc: String, expiryMonth: Int, expiryYear: Int, use3ds: Bool = true) {
         guard expiryMonth >= 1 && expiryMonth <= 12 else {
             return nil
         }
@@ -53,13 +64,14 @@ struct CardPayment: CreatePaymentType, Codable {
         }
         let month = String(format: "%02d", expiryMonth)
         
-        self.init(number: number, cvc: cvc, expiryDate: "\(month)/\(twoDigitExpiryYear)")
+        self.init(number: number, cvc: cvc, expiryDate: "\(month)/\(twoDigitExpiryYear)", use3ds: use3ds)
     }
     
     /// private initializer with all fields of this type
-    init(number: String, cvc: String, expiryDate: String) {
+    init(number: String, cvc: String, expiryDate: String, use3ds: Bool) {
         self.number = number
         self.cvc = cvc
         self.expiryDate = expiryDate
+        self.use3ds = use3ds
     }
 }

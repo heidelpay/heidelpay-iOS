@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// Protocol implemented by all heidelpay backend request types that don't

@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 /// Custom UITextField for BIC entry. Sets a placeholder and an icon and

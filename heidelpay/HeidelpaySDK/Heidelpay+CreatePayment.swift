@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 import PassKit
 
@@ -25,11 +24,13 @@ extension Heidelpay {
     /// - Parameter number: credit card number
     /// - Parameter cvc: cvc number
     /// - Parameter expiryDate: expiry date of card in the format MM/YY
+    /// - Parameter use3ds: flag to indicate if 3ds shall be used for this card on charge. (Depends on your contract).
+    ///                     Default is true
     /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
-    public func createPaymentCard(number: String, cvc: String, expiryDate: String,
+    public func createPaymentCard(number: String, cvc: String, expiryDate: String, use3ds: Bool = true,
                                   completion: @escaping CreatePaymentCompletionBlock) {
         
-        createPayment(type: CardPayment(number: number, cvc: cvc, expiryDate: expiryDate),
+        createPayment(type: CardPayment(number: number, cvc: cvc, expiryDate: expiryDate, use3ds: use3ds),
                       completion: completion)
     }
     
@@ -108,4 +109,28 @@ extension Heidelpay {
         createPayment(type: ApplePayPayment(paymentTokenData: paymentTokenData), completion: completion)
     }
 
+    /// create an Alipay payment type
+    /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
+    public func createPaymentAlipay(completion: @escaping CreatePaymentCompletionBlock) {
+        createPayment(type: AlipayPayment(), completion: completion)
+    }
+    
+    /// create a WeChat payment type
+    /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
+    public func createPaymentWeChatPay(completion: @escaping CreatePaymentCompletionBlock) {
+        createPayment(type: WeChatPayPayment(), completion: completion)
+    }
+
+    /// create a PIS payment type
+    /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
+    public func createPaymentPIS(completion: @escaping CreatePaymentCompletionBlock) {
+        createPayment(type: PISPayment(), completion: completion)
+    }
+
+    /// create an Invoice-Factoring payment type
+    /// - Parameter completion: completion handler of type CreatePaymentCompletionBlock.
+    public func createPaymentInvoiceFactoring(completion: @escaping CreatePaymentCompletionBlock) {
+        createPayment(type: InvoiceFactoringPayment(), completion: completion)
+    }
+    
 }

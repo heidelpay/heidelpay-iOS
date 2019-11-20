@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import XCTest
 @testable import HeidelpaySDK
 
@@ -111,6 +110,12 @@ class HeidelpayTests: XCTestCase {
             paymentExp.fulfill()
         }
         waitForExpectations(timeout: 0.1, handler: nil)
+        
+    }
+    
+    func testFrameworkVersion() {
+                
+        XCTAssertEqual(Heidelpay.sdkVersion, "1.2")
         
     }
 

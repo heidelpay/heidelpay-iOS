@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 /// Extension for providing additional methods on PaymentMethod
@@ -34,7 +33,9 @@ public extension PaymentMethod {
         case .invoice:
             return UIImage.heidelpay_resourceImage(named: "invoice")
         case .invoiceGuaranteed:
-            return UIImage.heidelpay_resourceImage(named: "invoice-guaranteed")
+            return UIImage.heidelpay_resourceImage(named: "invoice")
+        case .invoiceFactoring:
+            return UIImage.heidelpay_resourceImage(named: "invoice")
         case .giropay:
             return UIImage.heidelpay_resourceImage(named: "giropay")
         case .prepayment:
@@ -45,6 +46,14 @@ public extension PaymentMethod {
             return UIImage.heidelpay_resourceImage(named: "ideal")
         case .applepay:
             return UIImage.heidelpay_resourceImage(named: "apple-pay")
+        case .alipay:
+            return UIImage.heidelpay_resourceImage(named: "alipay")
+        case .wechatpay:
+            return UIImage.heidelpay_resourceImage(named: "wechatpay")
+        case .pis:
+            return UIImage.heidelpay_resourceImage(named: "pis")
+        case .hirePurchase:
+            return UIImage.heidelpay_resourceImage(named: "hire-purchase")
         }
     }
     
@@ -59,10 +68,15 @@ public extension PaymentMethod {
         case .giropay: return "Giropay"
         case .invoiceGuaranteed: return "Invoice Guaranteed"
         case .invoice: return "Invoice"
+        case .invoiceFactoring: return "Invoice Factoring"
         case .prepayment: return "Prepayment"
         case .przelewy24: return "Przelewy24"
         case .ideal: return "iDEAL"
         case .applepay: return "Apple Pay"            
+        case .alipay: return "Alipay"
+        case .wechatpay: return "WeChat"
+        case .pis: return "PIS"
+        case .hirePurchase: return "Hire Purchase"
         }
     }
     
