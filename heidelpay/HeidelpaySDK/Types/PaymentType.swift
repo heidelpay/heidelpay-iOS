@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// A customer Payment Type which can be used for a charge (on the server side)

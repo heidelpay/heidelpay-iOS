@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 /// Custom UITextField that automatically takes care of card number input and handles grouping as well as validation

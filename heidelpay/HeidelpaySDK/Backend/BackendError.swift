@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// enumeration of errors from the Backend Service
@@ -37,6 +36,9 @@ enum BackendError: Error {
     /// the server was reached and responded with a JSON error object which was parsed
     /// and the concrete error information is provided as an arry of type ServerError
     case serverResponseError(errors: [BackendServerError])
+    
+    /// the instance has been invalidated. Most probably because there was no strong reference to the Heidelpay instance
+    case instanceInvalidated
 }
 
 /// Equatable implementation for the BackendError enum

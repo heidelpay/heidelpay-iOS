@@ -28,11 +28,18 @@
 		5B73BCD621EF6AA900D0995B /* BICTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCD521EF6AA900D0995B /* BICTextFieldDelegate.swift */; };
 		5B73BCDE21EF7C6E00D0995B /* BICTextFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73BCDD21EF7C6E00D0995B /* BICTextFieldTest.swift */; };
 		5B7CCB53215A514E0038FC5D /* CreatePaymentType+Temporary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CCB52215A514E0038FC5D /* CreatePaymentType+Temporary.swift */; };
+		5B7E225D236F403000BAC683 /* Heidelpay+CreateServerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E225C236F403000BAC683 /* Heidelpay+CreateServerObject.swift */; };
+		5B7E225F236F410600BAC683 /* CreateServerObjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E225E236F410600BAC683 /* CreateServerObjectRequest.swift */; };
 		5B8C393A21AC3B8600A9AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C393921AC3B8600A9AEFC /* Assets.xcassets */; };
+		5B9F8EC3236F3C92004FC979 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F8EC2236F3C92004FC979 /* Customer.swift */; };
+		5B9F8EC5236F3E41004FC979 /* FTCreateCustomerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F8EC4236F3E41004FC979 /* FTCreateCustomerTest.swift */; };
 		5BA0487D222FAD380081D0FD /* ApplePayPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0487C222FAD380081D0FD /* ApplePayPayment.swift */; };
 		5BA8E16D21511AC000A26232 /* HeidelpaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */; };
 		5BA8E17221511AC000A26232 /* HeidelpayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8E17121511AC000A26232 /* HeidelpayTests.swift */; };
 		5BA8E17421511AC000A26232 /* HeidelpaySDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BA8E16621511AC000A26232 /* HeidelpaySDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BC160AF23731CC100EBF6DB /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC160AE23731CC100EBF6DB /* Basket.swift */; };
+		5BC160B523731FB900EBF6DB /* FTCreateBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC160B423731FB900EBF6DB /* FTCreateBasketTest.swift */; };
+		5BC160B7237321EB00EBF6DB /* FTBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC160B6237321EB00EBF6DB /* FTBaseTest.swift */; };
 		5BDD340B215121BF00518AA4 /* Heidelpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD340A215121BF00518AA4 /* Heidelpay.swift */; };
 		5BDD340E2151237900518AA4 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD340D2151237900518AA4 /* BackendService.swift */; };
 		5BDD3410215123DD00518AA4 /* HTTPBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD340F215123DD00518AA4 /* HTTPBackendService.swift */; };
@@ -42,6 +49,10 @@
 		5BE28BB02154EE5100E5FE00 /* NoParameterPaymentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE28BAF2154EE5100E5FE00 /* NoParameterPaymentTypes.swift */; };
 		5BE28BB22154F19100E5FE00 /* IdealPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE28BB12154F19100E5FE00 /* IdealPayment.swift */; };
 		5BE33B20215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE33B1F215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift */; };
+		5BE6D4DA228ABB19007E068C /* Heidelpay+HirePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6D4D9228ABB19007E068C /* Heidelpay+HirePurchase.swift */; };
+		5BE6D4DC228ABD47007E068C /* FTHirePurchaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6D4DB228ABD47007E068C /* FTHirePurchaseTest.swift */; };
+		5BE6D4DE228B0C63007E068C /* HirePurchasePaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6D4DD228B0C63007E068C /* HirePurchasePaymentType.swift */; };
+		5BE6D4E0228B0D2F007E068C /* RetrieveHirePurchasePlansRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6D4DF228B0D2F007E068C /* RetrieveHirePurchasePlansRequest.swift */; };
 		5BEDD0AA21550BB000B84975 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0A921550BAF00B84975 /* UIImageExtensions.swift */; };
 		5BEDD0B321550C4600B84975 /* PaymentMethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0AB21550C4500B84975 /* PaymentMethodExtension.swift */; };
 		5BEDD0B521550C4600B84975 /* PaymentTypeInformationValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDD0AE21550C4500B84975 /* PaymentTypeInformationValidator.swift */; };
@@ -111,7 +122,11 @@
 		5B73BCEF21EF80DF00D0995B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B73BCF121EF80DF00D0995B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B7CCB52215A514E0038FC5D /* CreatePaymentType+Temporary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreatePaymentType+Temporary.swift"; sourceTree = "<group>"; };
+		5B7E225C236F403000BAC683 /* Heidelpay+CreateServerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heidelpay+CreateServerObject.swift"; sourceTree = "<group>"; };
+		5B7E225E236F410600BAC683 /* CreateServerObjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServerObjectRequest.swift; sourceTree = "<group>"; };
 		5B8C393921AC3B8600A9AEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HeidelpaySDK/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		5B9F8EC2236F3C92004FC979 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		5B9F8EC4236F3E41004FC979 /* FTCreateCustomerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTCreateCustomerTest.swift; sourceTree = "<group>"; };
 		5BA0487C222FAD380081D0FD /* ApplePayPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayPayment.swift; sourceTree = "<group>"; };
 		5BA8E16321511AC000A26232 /* HeidelpaySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HeidelpaySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA8E16621511AC000A26232 /* HeidelpaySDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeidelpaySDK.h; sourceTree = "<group>"; };
@@ -119,6 +134,9 @@
 		5BA8E16C21511AC000A26232 /* HeidelpaySDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeidelpaySDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA8E17121511AC000A26232 /* HeidelpayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeidelpayTests.swift; sourceTree = "<group>"; };
 		5BA8E17321511AC000A26232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BC160AE23731CC100EBF6DB /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		5BC160B423731FB900EBF6DB /* FTCreateBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTCreateBasketTest.swift; sourceTree = "<group>"; };
+		5BC160B6237321EB00EBF6DB /* FTBaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTBaseTest.swift; sourceTree = "<group>"; };
 		5BDD340A215121BF00518AA4 /* Heidelpay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heidelpay.swift; sourceTree = "<group>"; };
 		5BDD340D2151237900518AA4 /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
 		5BDD340F215123DD00518AA4 /* HTTPBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBackendService.swift; sourceTree = "<group>"; };
@@ -128,6 +146,10 @@
 		5BE28BAF2154EE5100E5FE00 /* NoParameterPaymentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoParameterPaymentTypes.swift; sourceTree = "<group>"; };
 		5BE28BB12154F19100E5FE00 /* IdealPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealPayment.swift; sourceTree = "<group>"; };
 		5BE33B1F215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeidelpayFinishChargeViewController.swift; sourceTree = "<group>"; };
+		5BE6D4D9228ABB19007E068C /* Heidelpay+HirePurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Heidelpay+HirePurchase.swift"; sourceTree = "<group>"; };
+		5BE6D4DB228ABD47007E068C /* FTHirePurchaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTHirePurchaseTest.swift; sourceTree = "<group>"; };
+		5BE6D4DD228B0C63007E068C /* HirePurchasePaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HirePurchasePaymentType.swift; sourceTree = "<group>"; };
+		5BE6D4DF228B0D2F007E068C /* RetrieveHirePurchasePlansRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveHirePurchasePlansRequest.swift; sourceTree = "<group>"; };
 		5BEDD07F2155023E00B84975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BEDD0A921550BAF00B84975 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		5BEDD0AB21550C4500B84975 /* PaymentMethodExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodExtension.swift; sourceTree = "<group>"; };
@@ -192,6 +214,8 @@
 			children = (
 				5B5C691A2152592A00675523 /* SetupRequest.swift */,
 				5B5C69282152998B00675523 /* CreatePaymentTypeRequest.swift */,
+				5BE6D4DF228B0D2F007E068C /* RetrieveHirePurchasePlansRequest.swift */,
+				5B7E225E236F410600BAC683 /* CreateServerObjectRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -199,6 +223,8 @@
 		5B5C691C21526B8D00675523 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				5BC160AE23731CC100EBF6DB /* Basket.swift */,
+				5B9F8EC2236F3C92004FC979 /* Customer.swift */,
 				5B5C6926215294B700675523 /* PaymentMethod.swift */,
 				5B0B46C9215A3C8200F662EA /* PaymentType.swift */,
 				5BE28BA42154E68400E5FE00 /* PaymentTypes */,
@@ -258,7 +284,9 @@
 				5B5C69192152591900675523 /* Requests */,
 				5BDD340C2151236900518AA4 /* Backend */,
 				5BDD340A215121BF00518AA4 /* Heidelpay.swift */,
+				5B7E225C236F403000BAC683 /* Heidelpay+CreateServerObject.swift */,
 				5B0B46CB215A405C00F662EA /* Heidelpay+CreatePayment.swift */,
+				5BE6D4D9228ABB19007E068C /* Heidelpay+HirePurchase.swift */,
 				5BA8E16621511AC000A26232 /* HeidelpaySDK.h */,
 				5BA8E16721511AC000A26232 /* Info.plist */,
 			);
@@ -307,6 +335,7 @@
 				5BE28BAF2154EE5100E5FE00 /* NoParameterPaymentTypes.swift */,
 				5BE28BB12154F19100E5FE00 /* IdealPayment.swift */,
 				5BA0487C222FAD380081D0FD /* ApplePayPayment.swift */,
+				5BE6D4DD228B0C63007E068C /* HirePurchasePaymentType.swift */,
 			);
 			path = PaymentTypes;
 			sourceTree = "<group>";
@@ -390,7 +419,11 @@
 		5BEF7D502153D3A7009B4462 /* FunctionalTests */ = {
 			isa = PBXGroup;
 			children = (
+				5BC160B6237321EB00EBF6DB /* FTBaseTest.swift */,
 				5BEF7D512153D3D5009B4462 /* FTCreatePaymentTypesTest.swift */,
+				5BE6D4DB228ABD47007E068C /* FTHirePurchaseTest.swift */,
+				5B9F8EC4236F3E41004FC979 /* FTCreateCustomerTest.swift */,
+				5BC160B423731FB900EBF6DB /* FTCreateBasketTest.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -417,6 +450,7 @@
 				5BA8E15F21511AC000A26232 /* Sources */,
 				5BA8E16021511AC000A26232 /* Frameworks */,
 				5BA8E16121511AC000A26232 /* Resources */,
+				5BA8E17D21511B8C00A26232 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -502,6 +536,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5BA8E17D21511B8C00A26232 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5BA8E15F21511AC000A26232 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -514,10 +568,14 @@
 				5B5C69162152383C00675523 /* PublicKey.swift in Sources */,
 				5BE28BA82154E72A00E5FE00 /* SepaDirectDebitPayment.swift in Sources */,
 				5BEDD0D32155409700B84975 /* CardNumberTextFieldDelegate.swift in Sources */,
+				5BE6D4DE228B0C63007E068C /* HirePurchasePaymentType.swift in Sources */,
 				5B0B46CC215A405C00F662EA /* Heidelpay+CreatePayment.swift in Sources */,
 				5B5C692021526BB500675523 /* CreatePaymentType.swift in Sources */,
 				5BEDD0BB21550DCA00B84975 /* GroupingStyle.swift in Sources */,
+				5B7E225F236F410600BAC683 /* CreateServerObjectRequest.swift in Sources */,
 				5B0B46CA215A3C8200F662EA /* PaymentType.swift in Sources */,
+				5BE6D4DA228ABB19007E068C /* Heidelpay+HirePurchase.swift in Sources */,
+				5B7E225D236F403000BAC683 /* Heidelpay+CreateServerObject.swift in Sources */,
 				5BEDD0D52155409700B84975 /* IBANTextFieldDelegate.swift in Sources */,
 				5BE28BAC2154EA6100E5FE00 /* InvoicePayment.swift in Sources */,
 				5BEDD0AA21550BB000B84975 /* UIImageExtensions.swift in Sources */,
@@ -532,6 +590,8 @@
 				5BE28BB22154F19100E5FE00 /* IdealPayment.swift in Sources */,
 				5BEF7D4D21539784009B4462 /* BackendError.swift in Sources */,
 				5BEF7D4F2153C369009B4462 /* ServerErrorDetails.swift in Sources */,
+				5B9F8EC3236F3C92004FC979 /* Customer.swift in Sources */,
+				5BE6D4E0228B0D2F007E068C /* RetrieveHirePurchasePlansRequest.swift in Sources */,
 				5BEDD0E12155451400B84975 /* HeidelpayTheme.swift in Sources */,
 				5BDD340B215121BF00518AA4 /* Heidelpay.swift in Sources */,
 				5BEDD0DF2155438A00B84975 /* PaymentInputInformation.swift in Sources */,
@@ -543,6 +603,7 @@
 				5BEDD0B321550C4600B84975 /* PaymentMethodExtension.swift in Sources */,
 				5BEDD0D22155409700B84975 /* CardCvvTextFieldDelegate.swift in Sources */,
 				5B5C691B2152592A00675523 /* SetupRequest.swift in Sources */,
+				5BC160AF23731CC100EBF6DB /* Basket.swift in Sources */,
 				5BE33B20215FD482005B8A7F /* HeidelpayFinishChargeViewController.swift in Sources */,
 				5B5C692D21529FE000675523 /* JSONSerializable.swift in Sources */,
 				5B73BCD621EF6AA900D0995B /* BICTextFieldDelegate.swift in Sources */,
@@ -560,6 +621,7 @@
 			files = (
 				5B0B46CE215A492C00F662EA /* PaymentTypeTest.swift in Sources */,
 				5BEDD0F22156490300B84975 /* PaymentInformationInputTest.swift in Sources */,
+				5BC160B7237321EB00EBF6DB /* FTBaseTest.swift in Sources */,
 				5BEF7D522153D3D5009B4462 /* FTCreatePaymentTypesTest.swift in Sources */,
 				5B5C6911215233B500675523 /* TestBackendService.swift in Sources */,
 				5BEDD0E42156431F00B84975 /* PaymentTypeInformationValidator.swift in Sources */,
@@ -570,10 +632,13 @@
 				5BEDD0EA2156443200B84975 /* GroupingStyleTest.swift in Sources */,
 				5BEDD0EE2156481B00B84975 /* CardCvvTextFieldText.swift in Sources */,
 				5B5C69232152915C00675523 /* CardPaymentTest.swift in Sources */,
+				5BE6D4DC228ABD47007E068C /* FTHirePurchaseTest.swift in Sources */,
 				5BEDD0E82156438700B84975 /* CardTypeTest.swift in Sources */,
 				5BEDD0F02156482D00B84975 /* CardNumberTextFieldTest.swift in Sources */,
+				5BC160B523731FB900EBF6DB /* FTCreateBasketTest.swift in Sources */,
 				5BA8E17221511AC000A26232 /* HeidelpayTests.swift in Sources */,
 				5B5C6918215239C200675523 /* PublicKeyTest.swift in Sources */,
+				5B9F8EC5236F3E41004FC979 /* FTCreateCustomerTest.swift in Sources */,
 				5B5C6913215234A100675523 /* HTTPBackendServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,9 +798,11 @@
 		5BA8E17821511AC000A26232 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -749,6 +816,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -762,9 +830,11 @@
 		5BA8E17921511AC000A26232 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -778,6 +848,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.heidelpay.HeidelpaySDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

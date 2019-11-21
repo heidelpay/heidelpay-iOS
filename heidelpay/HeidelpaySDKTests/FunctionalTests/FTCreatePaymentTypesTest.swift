@@ -14,6 +14,7 @@
 // limitations under the License.
 // =========
 
+// swiftlint:disable function_body_length
 
 import XCTest
 
@@ -24,34 +25,25 @@ import HeidelpaySDK
 ///
 /// **Note**: This tests may fail in case of changes in the backend. Nothing is mocked.
 ///
-class FTCreatePaymentTypesTest: XCTestCase {
+class FTCreatePaymentTypesTest: FTBaseTest {
     
-    override func setUp() {
-        super.setUp()
+    func testErrorWhenNoStrongReference() {
+        let expCreate = expectation(description: "create")
         
-        continueAfterFailure = false
-    }
-
-    private func setupHeidelpay() -> Heidelpay {
-        let key = PublicKey("s-pub-2a10ifVINFAjpQJ9qW8jBe5OJPBx6Gxa")
-
-        let expSetup = expectation(description: "setup")
-        var heidelPay: Heidelpay?
-        
+        let key = FTBaseTest.testPublicKey
         Heidelpay.setup(publicKey: key) { (heidelPayInstance, error) in
-            XCTAssertNil(error)
-            XCTAssertNotNil(heidelPayInstance)
-            expSetup.fulfill()
-            
-            heidelPay = heidelPayInstance
-        }
-        waitForExpectations(timeout: 5.0, handler: nil)
         
-        return heidelPay!
-    }
-
-    func testSetup() {
-        _ = setupHeidelpay()
+            heidelPayInstance?.createPaymentCard(number: "4444333322221111",
+                                    cvc: "123",
+                                    expiryDate: "04/25") { (_, error) in
+                                                            
+                XCTAssertNotNil(error)
+                                        
+                expCreate.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+        
     }
     
     func testCreateCardPayment() {
@@ -73,6 +65,46 @@ class FTCreatePaymentTypesTest: XCTestCase {
             XCTAssertNil(paymentType?.data?["method"])
                                         
             expCreate.fulfill()
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+        
+        let expCreate2 = expectation(description: "create 3ds = false")
+        
+        heidelPay.createPaymentCard(number: "4444333322221111",
+                                    cvc: "123",
+                                    expiryDate: "04/25",
+                                    use3ds: false) { (paymentType, error) in
+            
+            XCTAssertNotNil(paymentType)
+            XCTAssertNil(error)
+            XCTAssertNotNil(paymentType?.data)
+            XCTAssertNotNil(paymentType?.data?["number"])
+            XCTAssertNotNil(paymentType?.data?["brand"])
+            XCTAssertNotNil(paymentType?.data?["expiryDate"])
+            XCTAssertNil(paymentType?.data?["id"])
+            XCTAssertNil(paymentType?.data?["method"])
+                                        
+            expCreate2.fulfill()
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+        
+        let expCreate3 = expectation(description: "create 3ds = explicit set to true")
+        
+        heidelPay.createPaymentCard(number: "4444333322221111",
+                                    cvc: "123",
+                                    expiryDate: "04/25",
+                                    use3ds: true) { (paymentType, error) in
+            
+            XCTAssertNotNil(paymentType)
+            XCTAssertNil(error)
+            XCTAssertNotNil(paymentType?.data)
+            XCTAssertNotNil(paymentType?.data?["number"])
+            XCTAssertNotNil(paymentType?.data?["brand"])
+            XCTAssertNotNil(paymentType?.data?["expiryDate"])
+            XCTAssertNil(paymentType?.data?["id"])
+            XCTAssertNil(paymentType?.data?["method"])
+                                        
+            expCreate3.fulfill()
         }
         waitForExpectations(timeout: 10.0, handler: nil)
         
@@ -277,6 +309,73 @@ class FTCreatePaymentTypesTest: XCTestCase {
         }
         waitForExpectations(timeout: 10.0, handler: nil)
         
+    }
+}
+
+extension FTCreatePaymentTypesTest {
+    
+    func testCreateAlipay() {
+        let heidelPay = setupHeidelpay()
+        
+        let expCreate = expectation(description: "create")
+        
+        heidelPay.createPaymentAlipay { (paymentType, error) in
+            XCTAssertNotNil(paymentType)
+            XCTAssertNil(error)
+            XCTAssertNotNil(paymentType?.data)
+            XCTAssertNil(paymentType?.data?["id"])
+            XCTAssertNil(paymentType?.data?["method"])
+            expCreate.fulfill()
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testCreateWeChatPay() {
+        let heidelPay = setupHeidelpay()
+        
+        let expCreate = expectation(description: "create")
+        
+        heidelPay.createPaymentWeChatPay { (paymentType, error) in
+            XCTAssertNotNil(paymentType)
+            XCTAssertNil(error)
+            XCTAssertNotNil(paymentType?.data)
+            XCTAssertNil(paymentType?.data?["id"])
+            XCTAssertNil(paymentType?.data?["method"])
+            expCreate.fulfill()
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testCreatePIS() {
+        let heidelPay = setupHeidelpay()
+        
+        let expCreate = expectation(description: "create")
+        
+        heidelPay.createPaymentPIS { (paymentType, error) in
+            XCTAssertNotNil(paymentType)
+            XCTAssertNil(error)
+            XCTAssertNotNil(paymentType?.data)
+            XCTAssertNil(paymentType?.data?["id"])
+            XCTAssertNil(paymentType?.data?["method"])
+            expCreate.fulfill()
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testCreateInvoiceFactoring() {
+        let heidelPay = setupHeidelpay()
+        
+        let expCreate = expectation(description: "create")
+        
+        heidelPay.createPaymentInvoiceFactoring { (paymentType, error) in
+            XCTAssertNotNil(paymentType)
+            XCTAssertNil(error)
+            XCTAssertNotNil(paymentType?.data)
+            XCTAssertNil(paymentType?.data?["id"])
+            XCTAssertNil(paymentType?.data?["method"])
+            expCreate.fulfill()
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
     }
 
 }

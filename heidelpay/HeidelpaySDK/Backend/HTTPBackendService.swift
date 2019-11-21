@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 /// implementation of the BackendService protocol which does concrete HTTPs calls.
@@ -27,6 +26,8 @@ class HTTPBackendService: NSObject {
     private let environment: Environment
     /// public key to be used for authorization by this backend service
     private let publicKey: PublicKey
+    /// has this instance be terminated
+    private var terminated: Bool = false
     
     /// intialize the HTTPBackendService
     /// - Parameter publicKey: public key to be used for Authorization of requests
@@ -43,6 +44,7 @@ class HTTPBackendService: NSObject {
     /// a memory leak
     func invalidate() {
         session.invalidateAndCancel()
+        terminated = true
     }
     
     /// build a URLRequest object for the given backend request
@@ -57,6 +59,9 @@ class HTTPBackendService: NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let languageCode: String = Locale.current.languageCode ?? "en"
         request.addValue(languageCode, forHTTPHeaderField: "Accept-Language")
+        
+        request.addValue(Heidelpay.sdkVersion, forHTTPHeaderField: "SDK-VERSION")
+        request.addValue("HeidelpayMobile", forHTTPHeaderField: "SDK-TYPE")
         
         if let dataRequest = heidelPayRequest as? HeidelpayDataRequest {
             let requestData = try dataRequest.encodeAsJSON()
@@ -89,7 +94,15 @@ class HTTPBackendService: NSObject {
                 return (nil, .noInternet)
             } else {
                 
-                return (nil, .requestFailed(underlyingError: nsError))
+                if terminated {
+                    
+                    return (nil, .instanceInvalidated)
+                    
+                } else {
+                
+                    return (nil, .requestFailed(underlyingError: nsError))
+                
+                }
             }
         }
         
@@ -119,12 +132,12 @@ class HTTPBackendService: NSObject {
         
         let task = session.dataTask(with: urlRequest) { [weak self] (data, response, error) in
             
-            guard let sSelf = self else {
+            guard let self = self else {
                 completionHandler(nil, nil)
                 return
             }
             
-            let response = sSelf.buildResponse(fromData: data, response: response as? HTTPURLResponse, error: error)
+            let response = self.buildResponse(fromData: data, response: response as? HTTPURLResponse, error: error)
             completionHandler(response.0, response.1)
             
         }
@@ -203,14 +216,21 @@ extension HTTPBackendService: URLSessionDelegate {
             var trust: SecTrust?
             SecTrustCreateWithCertificates([certificate] as CFArray, policy, &trust)
             
-            let pubKey = SecTrustCopyPublicKey(trust!)
+            if let trust = trust {
+                if let pubKey = SecTrustCopyPublicKey(trust) {
             
-            var error: Unmanaged<CFError>?
-            if let pubKeyData = SecKeyCopyExternalRepresentation(pubKey!, &error) {
-                var keyWithHeader = Data(HTTPBackendService.rsa2048Asn1Header)
-                keyWithHeader.append(pubKeyData as Data)
-                let sha256Key = sha256(keyWithHeader)
-                if !environment.pinnedPublicKeyHash.contains(sha256Key) {
+                    var error: Unmanaged<CFError>?
+                    if let pubKeyData = SecKeyCopyExternalRepresentation(pubKey, &error) {
+                        var keyWithHeader = Data(HTTPBackendService.rsa2048Asn1Header)
+                        keyWithHeader.append(pubKeyData as Data)
+                        let sha256Key = sha256(keyWithHeader)
+                        if !environment.pinnedPublicKeyHash.contains(sha256Key) {
+                            serverTrusted = false
+                        }
+                    } else {
+                        serverTrusted = false
+                    }
+                } else {
                     serverTrusted = false
                 }
             } else {

@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 /// Extension on String to provide helper methods

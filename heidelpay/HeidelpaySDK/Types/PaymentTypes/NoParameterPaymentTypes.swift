@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
 
 // simple payment types with no data parameter
@@ -42,4 +41,24 @@ struct Przelewy24Payment: CreatePaymentType, Codable {
 /// Paypal Payment Type
 struct PaypalPayment: CreatePaymentType, Codable {
     var method: PaymentMethod { return .paypal }
+}
+
+/// Alipay Payment Type
+struct AlipayPayment: CreatePaymentType, Codable {
+    var method: PaymentMethod { return .alipay }
+}
+
+/// WeChat Payment Type
+struct WeChatPayPayment: CreatePaymentType, Codable {
+    var method: PaymentMethod { return .wechatpay }
+}
+
+/// PIS Payment Type
+struct PISPayment: CreatePaymentType, Codable {
+    var method: PaymentMethod { return .pis }
+}
+
+/// Invoice Factoring Type
+struct InvoiceFactoringPayment: CreatePaymentType, Codable {
+    var method: PaymentMethod { return .invoiceFactoring }
 }

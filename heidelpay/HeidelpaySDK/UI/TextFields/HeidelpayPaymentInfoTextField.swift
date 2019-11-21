@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 // swiftlint:disable weak_delegate
@@ -79,10 +78,16 @@ public class HeidelpayPaymentInfoTextField: UITextField, HeidelpayInputField {
         
         leftViewMode = .always
         
+        let container = UIView(frame: .zero)
         let imageView = UIImageView(image: nil)
-        imageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        imageView.contentMode = .left
-        leftView = imageView
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            container.widthAnchor.constraint(equalToConstant: 30),
+            imageView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+        ])
+        leftView = container
 
         let sel = #selector(HeidelpayPaymentInfoTextField.handleTextDidChangeNotification)
         NotificationCenter.default.addObserver(self,
@@ -97,14 +102,14 @@ public class HeidelpayPaymentInfoTextField: UITextField, HeidelpayInputField {
         attributedPlaceholder = NSAttributedString(string: placeHolder,
                                                    attributes: placeholderAttributes)
 
-    }    
+    }
     
     @objc func handleTextDidChangeNotification() {
         
     }
     
     func updateImage(image: UIImage?) {
-        guard let imageView = self.leftView as? UIImageView else {
+        guard let imageView = self.leftView?.subviews.first as? UIImageView else {
             return
         }
         imageView.image = image?.heidelpay_resize(targetSize: imageTargetSize)

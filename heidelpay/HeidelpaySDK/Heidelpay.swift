@@ -14,8 +14,8 @@
 // limitations under the License.
 // =========
 
-
 import Foundation
+import os.log
 
 /// execute the given block on the main thread
 func execOnMain(_ block: @escaping (() -> Void)) {
@@ -73,8 +73,18 @@ public class Heidelpay {
         case serverError(details: ServerErrorDetails)
     }
     
+    /// SDK version (Bundle Version)
+    public static var sdkVersion: String = {
+        
+        let bundle = Bundle.init(for: Heidelpay.self)
+        guard let versionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String else {
+            return "?"
+        }
+        return versionString
+    }()
+    
     /// backend service used by this instance
-    private let backendService: BackendService
+    let backendService: BackendService
     
     /// available payment methods supported by the SDK and provided by the heidelpay backend
     public let paymentMethods: [PaymentMethod]
@@ -174,6 +184,14 @@ extension Heidelpay.HeidelpayError {
              .invalidServerResponse,
              .requestFailed:
             
+            return .generalProcessingError
+            
+        case .instanceInvalidated:
+            
+            let log = OSLog(subsystem: "com.heidelpay.HeidelpaySDK", category: "sdk")
+            os_log("failure: instance has been invalidated. You must keep a strong reference to the Heidelpay instance",
+                   log: log, type: .error)
+                        
             return .generalProcessingError
             
         case .noInternet:

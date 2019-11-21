@@ -14,7 +14,6 @@
 // limitations under the License.
 // =========
 
-
 import UIKit
 
 /// Defines colors and fonts for the UI Components of the heidelpay SDK
